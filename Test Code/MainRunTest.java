@@ -30,9 +30,9 @@ public class main {
 
 				r.runMotor(RXTXRobot.MOTOR1, 0, RXTXRobot.MOTOR2,0,0);//stops at salinity dispenser
 				
-				r.refreshAnalogPins();
-				double salinity=200;//r.getAnalogPin(2).getValue();//measures salinity and turbidity
-				double turbidity=300;//r.getAnalogPin(3).getValue();
+				
+				double turbidity=Turbidity(r);
+				double salinity=Salinity(r);
 				
 				RAMMINGSPEED(salinity,r);
 
@@ -106,8 +106,19 @@ public class main {
 		r.close(); 
 		  
 			}
-
-		
+	
+	public static double Salinity(RXTXRobot r){
+		r.refreshAnalogPins();
+		double salinity=200;//r.getAnalogPin(2).getValue();//measures salinity 
+		//salinity math
+		return salinity;
+	}
+	public static double Turbidity(RXTXRobot r){
+		r.refreshAnalogPins();
+		double turbidity=300;//r.getAnalogPin(3).getValue();//measures turbidity
+		//turbidity math
+		return turbidity;
+	}
 	}
 
 
