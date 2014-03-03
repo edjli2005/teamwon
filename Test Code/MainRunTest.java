@@ -1,4 +1,3 @@
-
 import rxtxrobot.*; 
 //This is a version of my earlier main code, changed to include the motors needing to have reversed values to move forward and backwards.
 public class main {
@@ -119,7 +118,19 @@ public class main {
 		//turbidity math
 		return turbidity;
 	}
+	
+	public static void TurnLeft(RXTXRobot r){
+		r.runMotor(RXTXRobot.MOTOR1, 125, RXTXRobot.MOTOR2,125,5000);
+		//OR
+		//r.runEncodedMotor(RXTXRobot.MOTOR1, 125, 100000, RXTXRobot.MOTOR2, 125, 100000);
 	}
+	
+	public static void TurnRight(RXTXRobot r){
+		r.runMotor(RXTXRobot.MOTOR1, -125, RXTXRobot.MOTOR2,-125,5000);
+		//OR
+		//r.runEncodedMotor(RXTXRobot.MOTOR1, -125, 100000, RXTXRobot.MOTOR2, -125, 100000);
+	}
+}
 
 
 
