@@ -65,7 +65,6 @@ public class waterTests {
 		testValues[0]=Turbidity;
 		testValues[1]=Salinity;
 		
-		r.close();
 		return testValues;
 	}
 }

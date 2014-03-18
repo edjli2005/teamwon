@@ -7,12 +7,17 @@ public class main {
 		r.setPort("COM4"); // Set the port to COM4 
 		r.setVerbose(true); // Turn on debugging messages 
 		r.connect(); 
-		int Time=0;
-		Forward moveForward= new Forward(r,Time);
-		Backward moveBackward= new Backward(r,Time);
-		Right turnRight= new Right(r,Time);
-		Left turnLeft = new Left(r,Time);
-		waterTests Sensors= new waterTests();
+		int Time=3000;
+		Forward moveForward= new Forward();
+		//Backward moveBackward= new Backward();
+		//Right turnRight= new Right();
+		//Left turnLeft = new Left();
+		//waterTests Sensors= new waterTests();
+		moveForward.Forward(r,Time);
+		//turnLeft.Left(r,Time);
+		//moveRight(r,Time);
+		//moveBackward.Backward(r,Time);
+		r.close();
 	}
 
 }
