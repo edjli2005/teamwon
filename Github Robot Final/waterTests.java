@@ -2,6 +2,7 @@ import rxtxrobot.RXTXRobot;
 
 public class waterTests {
 	
+	public waterTests(){}
 	public double[] waterTests(RXTXRobot r) {
 	
 		//Variables
