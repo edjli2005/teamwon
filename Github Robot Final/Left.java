@@ -7,7 +7,7 @@ public class Left{
 		r.runMotor(RXTXRobot.MOTOR1,- 125, RXTXRobot.MOTOR2, -125,Time );//starts moving
 		System.out.println("Left Done");
 		//r.sleep(1500);
-		
+		r.close();
 	}
 
 }

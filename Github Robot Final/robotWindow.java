@@ -55,11 +55,9 @@ public class robotWindow extends JFrame {
 		
 		//instantiates buttons and gives them labels
 		
-		Timefield=new JTextField("Time?",10);
-		String Timestring = "-1";
-		final int Time=Integer.valueOf(Timestring);
-		//instantiates textfield for Time imput and converts string input
-		//to final integer, final b/c final required for threaded action listener 
+		Timefield=new JTextField(10);
+		
+		//instantiates textfield for Time imput  
 		
 		final Forward moveForward= new Forward();
 		final Backward moveBackward= new Backward();
@@ -76,22 +74,24 @@ public class robotWindow extends JFrame {
 		
 		 Up.addActionListener(new ActionListener() {//action listener for the button listens
 	         public void actionPerformed(ActionEvent e) {//for action event, when the button is pressed
-	            goUp.Up(r,Time);//and calls the appropriate method
+	        	 String Timestring = Timefield.getText();//converts string input to final integer, b/c final int req. for threaded action listener
+	     		final int Time=Integer.valueOf(Timestring);
+	        	 goUp.Up(r,Time);//and calls the appropriate method
 	            Out.setText("Up Done");
 	           
 	         }          
 	      });
 		 //repeated below for all others
 		Down.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {goDown.Down(r,Time); Out.setText("Down Done"); } });
+			public void actionPerformed(ActionEvent e) {String Timestring = Timefield.getText(); final int Time=Integer.valueOf(Timestring); goDown.Down(r,Time); Out.setText("Down Done"); } });
 		Left.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {turnLeft.Left(r,Time); Out.setText("Left Done");} });
+		    public void actionPerformed(ActionEvent e) {String Timestring = Timefield.getText(); final int Time=Integer.valueOf(Timestring); turnLeft.Left(r,Time); Out.setText("Left Done");} });
 		Right.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {turnRight.Right(r,Time); Out.setText("Right Done");} });
+		    public void actionPerformed(ActionEvent e) {String Timestring = Timefield.getText(); final int Time=Integer.valueOf(Timestring); turnRight.Right(r,Time); Out.setText("Right Done");} });
 		Forward.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {moveForward.Forward(r,Time); Out.setText("Forward Done");} });
+		    public void actionPerformed(ActionEvent e) {String Timestring = Timefield.getText(); final int Time=Integer.valueOf(Timestring); moveForward.Forward(r,Time); Out.setText("Forward Done");} });
 		Backward.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {moveBackward.Backward(r,Time); Out.setText("Backward Done");} });
+		    public void actionPerformed(ActionEvent e) {String Timestring = Timefield.getText(); final int Time=Integer.valueOf(Timestring); moveBackward.Backward(r,Time); Out.setText("Backward Done");} });
 		Water.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {testWater.waterTests(r); Out.setText("Water Tests Done");} });
 		Salinity.addActionListener(new ActionListener() {
@@ -120,7 +120,7 @@ public class robotWindow extends JFrame {
 		//adds all our elements to the panels and the panels to the window
 		
 		
-		r.close();//closes connection at end
+		//r.close();//closes connection at end
 		}
 
 	

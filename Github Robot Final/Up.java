@@ -7,7 +7,7 @@ public class Up {
 		r.runMotor(RXTXRobot.MOTOR3, 125,Time );//starts moving
 		System.out.println("Up Done");
 		//r.sleep(1500);
-		
+		r.close();
 	}
 	
 

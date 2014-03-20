@@ -10,7 +10,8 @@ public class main {
 		RXTXRobot r = new RXTXRobot(); // Create RXTXRobot object 
 		r.setPort("COM4"); // Set the port to COM4 
 		r.setVerbose(true); // Turn on debugging messages 
-		//r.connect(); //connects to robot
+		
+		r.connect(); //connects to robot
 	
 		
 		robotWindow window= new robotWindow(r);

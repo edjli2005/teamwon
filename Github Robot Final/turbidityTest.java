@@ -34,6 +34,7 @@ public class turbidityTest {
 			diff=FIRST-SECOND;
 			
 		}
+		r.close();
 		return Turbidity;
 		//r.close();
 	}
