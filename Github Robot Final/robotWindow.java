@@ -41,6 +41,8 @@ public class robotWindow extends JFrame {
 		sensorPanel.setBackground(Color.cyan);
 		//instantiates panels and sets their defaults
 		
+		//instead of instantiating this all here, wehy don't we instatiate
+		//it when the variabls are declared so the code is more condenced?
 		Up=new JButton("UP");
 		Down=new JButton("DOWN");
 		Left=new JButton("LEFT");
@@ -59,8 +61,6 @@ public class robotWindow extends JFrame {
 		
 		//instantiates textfield for Time imput  
 		
-		//instead of instantiating this all here, wehy don't we instatiate
-		//it when the variabls are declared so the code is more condenced.
 		final Forward moveForward= new Forward();
 		final Backward moveBackward= new Backward();
 		final Right turnRight= new Right();
