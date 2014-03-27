@@ -13,26 +13,26 @@ import java.io.*;
 public class robotWindow extends JFrame {
 		
 		//declares all our panels and buttons etc.
-		private JPanel movementPanel;
-		private JPanel sensorPanel;
-		private JButton Up;
-		private JButton Down;
-		private JButton Left;
-		private JButton Right;
-		private JButton Water;
-		private JButton Salinity;
-		private JButton Turbidity;
-		private JButton Forward;
-		private JButton Backward;
-		private JButton Run;
-		private JTextField Timefield;
-		private JLabel Out;
+		private JPanel movementPanel = new JPanel();
+		private JPanel sensorPanel = new JPanel();
+		private JButton Up =new JButton("UP");
+		private JButton Down =new JButton("DOWN");
+		private JButton Left =new JButton("LEFT");
+		private JButton Right =new JButton("RIGHT");
+		private JButton Water =new JButton("TEST ALL");
+		private JButton Salinity =new JButton("TEST SALT");
+		private JButton Turbidity =new JButton("TEST TURB.");
+		private JButton Forward =new JButton("FORWARD");
+		private JButton Backward =new JButton("BACKWARD");
+		private JButton Run =new JButton("Lola's Folly");
+		private JTextField Timefield =new JTextField(10); //instatiates texfield for time input
+		private JLabel Out =new JLabel("<html>Hello, my name is Lola.<br />What do you want Human?<html>");
 		
 		public robotWindow(final RXTXRobot r){
 		setLayout(new BorderLayout(3,2));
 		
-		movementPanel= new JPanel();
-		sensorPanel= new JPanel();
+		//movementPanel= new JPanel();
+		//sensorPanel= new JPanel();
 		movementPanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,20));
 		sensorPanel.setLayout(new FlowLayout(FlowLayout.LEFT,10,20));
 		movementPanel.setPreferredSize(new Dimension(200,100));
@@ -41,23 +41,22 @@ public class robotWindow extends JFrame {
 		sensorPanel.setBackground(Color.cyan);
 		//instantiates panels and sets their defaults
 		
-		//instead of instantiating this all here, wehy don't we instatiate
-		//it when the variabls are declared so the code is more condenced?
-		Up=new JButton("UP");
-		Down=new JButton("DOWN");
-		Left=new JButton("LEFT");
-		Right=new JButton("RIGHT");
-		Forward=new JButton("FORWARD");
-		Backward=new JButton("BACKWARD");
-		Water=new JButton("TEST ALL");
-		Salinity=new JButton("TEST SALT");
-		Turbidity=new JButton("TEST TURB.");
-		Run=new JButton("Lola's Folly");
-		Out=new JLabel("<html>Hello, my name is Lola.<br />What do you want Human?<html>");
+
+		//Up=new JButton("UP");
+		//Down=new JButton("DOWN");
+		//Left=new JButton("LEFT");
+		//Right=new JButton("RIGHT");
+		//Forward=new JButton("FORWARD");
+		//Backward=new JButton("BACKWARD");
+		//Water=new JButton("TEST ALL");
+		//Salinity=new JButton("TEST SALT");
+		//Turbidity=new JButton("TEST TURB.");
+		//Run=new JButton("Lola's Folly");
+		//Out=new JLabel("<html>Hello, my name is Lola.<br />What do you want Human?<html>");
 		
 		//instantiates buttons and gives them labels
 		
-		Timefield=new JTextField(10);
+		//Timefield=new JTextField(10);
 		
 		//instantiates textfield for Time imput  
 		
