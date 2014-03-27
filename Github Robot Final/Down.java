@@ -7,7 +7,7 @@ public class Down {
 		r.runMotor(RXTXRobot.MOTOR3, -125,Time );//starts moving
 		System.out.println("Down Done");
 		//r.sleep(1500);
-		r.close();
+		//r.close();
 	}
 	
 
