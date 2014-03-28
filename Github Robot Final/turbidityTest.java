@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.lang.*;
 
-import rxtxrobot.RXTXRobot;
+import rxtxrobot.*;
 
 
 public class turbidityTest {
@@ -34,7 +34,7 @@ public class turbidityTest {
 			diff=FIRST-SECOND;
 			
 		}
-		//r.close();
+		
 		return Turbidity;
 		//r.close();
 	}

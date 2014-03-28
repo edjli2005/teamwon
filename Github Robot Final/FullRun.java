@@ -1,4 +1,4 @@
-import rxtxrobot.RXTXRobot;
+import rxtxrobot.*;
 
 
 public class FullRun {
@@ -7,6 +7,6 @@ public class FullRun {
 		
 		//Where we can plan out the full run actions and have it execute
 		//with a button
-		//r.close();
+		
 	}
 }

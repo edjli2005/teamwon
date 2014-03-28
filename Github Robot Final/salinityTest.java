@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import rxtxrobot.RXTXRobot;
+import rxtxrobot.*;
 
 
 public class salinityTest {
@@ -44,7 +44,7 @@ public class salinityTest {
 		//System.out.println(R);
 		//Salinity=distance/(R*area);
 		System.out.println(Salinity);
-		//r.close();
+		
 		return Salinity;
 
 //		Salinity=(R-310.52)/26866;

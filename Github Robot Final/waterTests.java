@@ -1,4 +1,4 @@
-import rxtxrobot.RXTXRobot;
+import rxtxrobot.*;
 
 public class waterTests {
 	
@@ -65,7 +65,7 @@ public class waterTests {
 		System.out.println("Final Salinity: "+Salinity);
 		testValues[0]=Turbidity;
 		testValues[1]=Salinity;
-		//r.close();
+		
 		return testValues;
 	}
 }

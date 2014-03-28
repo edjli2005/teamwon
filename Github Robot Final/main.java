@@ -2,7 +2,7 @@ import java.awt.*;
 
 import javax.swing.JFrame;
 
-import rxtxrobot.RXTXRobot;
+import rxtxrobot.*;
 
 public class main {
 
@@ -10,8 +10,8 @@ public class main {
 		RXTXRobot r = new RXTXRobot(); // Create RXTXRobot object 
 		r.setPort("COM4"); // Set the port to COM4 
 		r.setVerbose(true); // Turn on debugging messages 
-		
-		r.connect(); //connects to robot
+		r.setHasEncodedMotors(true); 
+		//r.connect(); //connects to robot
 	
 		
 		robotWindow window= new robotWindow(r);
@@ -27,26 +27,6 @@ public class main {
 		
 		
 		
-		/*
-		 int Time=5000;
-		Forward moveForward= new Forward();
-		Backward moveBackward= new Backward();
-		Right turnRight= new Right();
-		Left turnLeft = new Left();
-		Up goUp=new Up();
-		Down goDown=new Down();
-		waterTests testWater= new waterTests();
-		salinityTest testSalinity = new salinityTest();
-		turbidityTest testTurbidity= new turbidityTest();
-		FullRun LolasFolly= new FullRun();
-		*/
-		
-		/*moveForward.Forward(r,Time);
-		turnLeft.Left(r,Time);
-		moveRight(r,Time);
-		moveBackward.Backward(r,Time);
-		r.close();
-		*/
 	}
 
 }

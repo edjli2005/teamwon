@@ -1,4 +1,4 @@
-import rxtxrobot.RXTXRobot;
+import rxtxrobot.*;
 
 
 public class Right {
@@ -7,7 +7,7 @@ public class Right {
 		r.runMotor(RXTXRobot.MOTOR1, 125, RXTXRobot.MOTOR2, 125,Time );//starts moving
 		System.out.println("Right Done");
 		//r.sleep(1500);
-		//r.close();
+		
 	}
 
 }
