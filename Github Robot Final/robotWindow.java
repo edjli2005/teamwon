@@ -28,7 +28,6 @@ public class robotWindow extends JFrame {
 		private JButton Run =new JButton("Lola's Folly");
 		private JTextField Timefield =new JTextField(10); //instatiates texfield for time input
 		private JLabel Out =new JLabel("<html>Hello, my name is Lola.<br />What do you want Human?<html>");
-
 		private JButton getPing=new JButton("Get Ping");
 		private JButton EForward=new JButton("EForward");
 		private JButton EBackward=new JButton("EBackward");
@@ -40,6 +39,8 @@ public class robotWindow extends JFrame {
 		private JButton bridgeRun=new JButton("Bridge");
 		private JButton testPosition=new JButton("Position");
 		private JButton getPosition=new JButton("Get Position");
+		private JButton Uturn= new JButton("U-Turn");
+		private JButton testBridge= new JButton("Test Bridge");
 		
 		public robotWindow(final RXTXRobot r){
 		setLayout(new BorderLayout(3,2));
@@ -75,6 +76,9 @@ public class robotWindow extends JFrame {
 		final bridgeRun bridgeAttack= new bridgeRun();
 		final testPosition corrector=new testPosition();
 		final getPosition positionGetter=new getPosition();
+		final Uturn U=new Uturn();
+		final testBridge findBridge=new testBridge();
+		
 		//instantiates calls to all out methods, final b/c final required for threaded action listener 
 		
 		
@@ -128,7 +132,10 @@ public class robotWindow extends JFrame {
 		    public void actionPerformed(ActionEvent e) {corrector.testPosition(r); Out.setText("Position Corrected!");} });
 		getPosition.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {positionGetter.getPosition(r,expectedPosition); Out.setText("Position Got!");} });
-		
+		Uturn.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {String Timestring = Timefield.getText(); final int Time=Integer.valueOf(Timestring); U.Uturn(r, Time); Out.setText("OTHER WAY OTHER WAY!!");} });	
+		testBridge.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {findBridge.testBridge(r); Out.setText("Found it.");} });
 		
 		movementPanel.add(Up);
 		movementPanel.add(Down);
@@ -151,8 +158,12 @@ public class robotWindow extends JFrame {
 		movementPanel.add(bridgeRun);
 		movementPanel.add(testPosition);
 		movementPanel.add(getPosition);
+		movementPanel.add(Uturn);
+		sensorPanel.add(testBridge);
+		
 		sensorPanel.add(Timefield);
 		sensorPanel.add(Out);
+		
 		
 		add(movementPanel, BorderLayout.WEST);
 		add(sensorPanel, BorderLayout.EAST);
