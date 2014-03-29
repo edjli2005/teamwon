@@ -22,12 +22,16 @@ public class Final {
 		testBridge findBridge=new testBridge();
 		waterMath MATH=new waterMath();
 		int[] Balls;
+		double[] expectedPosition={0,0};
 		int Turb100,Turb10,Salt100,Salt10;
 		
-		corrector.testPosition(r);
+		corrector.testPosition(r,expectedPosition);
 
-		FEncoded.EForward(r, 200);//go forward to water
-		corrector.testPosition(r);
+		FEncoded.EForward(r, 240);//go forward to water//about 3 ft
+		
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
 		
 		goDown.Down(r, 500);
 		
@@ -40,44 +44,65 @@ public class Final {
 		
 		goUp.Up(r,500);
 		LEncoded.ELeft(r,100);//turn left toward dispenser
-		FEncoded.EForward(r, 300);//drives toward dispenser
-		corrector.testPosition(r);
+		FEncoded.EForward(r, 280);//drives toward dispenser// about 3.5 ft
+		
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
 		
 		ballRetrieve.Retrieve(r,Turb100);//retrieves number of balls,change for different placement of dispensers, front-left from start
-		BEncoded.EBackward(r,50);
+		BEncoded.EBackward(r,10);
 		LEncoded.ELeft(r, 100);
-		FEncoded.EForward(r, 150);//goes to second dispenser
+		FEncoded.EForward(r, 160);//goes to second dispenser//about 2 feet
 		REncoded.ERight(r, 100);
-		FEncoded.EForward(r,50);
+		FEncoded.EForward(r,20);
 		ballRetrieve.Retrieve(r, Turb10);//change for different placement of dispensers, back-left from start
-		corrector.testPosition(r);
 		
-		BEncoded.EBackward(r,200);
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
+		
+		BEncoded.EBackward(r,100);
 		U.Uturn(r, 0);
-		FEncoded.EForward(r, 300);//go to other side
-		corrector.testPosition(r);
+		FEncoded.EForward(r, 460);//go to other side//about 7 feet
+		
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
 		
 		ballRetrieve.Retrieve(r,Salt10);//retrieves number of balls, change for different placement of dispensers, back-right from start
-		BEncoded.EBackward(r,50);
+		BEncoded.EBackward(r,10);
 		LEncoded.ELeft(r, 100);
-		FEncoded.EForward(r, 150);//goes to second dispenser
+		FEncoded.EForward(r, 160);//goes to second dispenser//abou 2 feet
 		REncoded.ERight(r, 100);
-		FEncoded.EForward(r,50);
+		FEncoded.EForward(r,20);
 		ballRetrieve.Retrieve(r, Salt100);//change for different placement of dispensers, front right from start
-		corrector.testPosition(r);
 		
-		BEncoded.EBackward(r, 50);
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
+		
+		BEncoded.EBackward(r, 10);
 		REncoded.ERight(r, 100);
-		FEncoded.EForward(r, 200);//goes to side of canyon
+		FEncoded.EForward(r, 440);//goes to side of canyon//about 5.5 feet
 		REncoded.ERight(r, 100);
-		corrector.testPosition(r);
+		
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
 		
 		findBridge.testBridge(r);
-		corrector.testPosition(r);
+		
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
 		
 		REncoded.ERight(r, 100);
-		FEncoded.EForward(r,100);//go to release pit and release balls
-		corrector.testPosition(r);
+		FEncoded.EForward(r,300);//go to release pit and release balls//about 3.5 feet
+		
+		expectedPosition[0]=0;
+		expectedPosition[1]=0;
+		corrector.testPosition(r,expectedPosition);
 		
 		ballCoverUp.coverOpen(r);
 		r.sleep(2500);

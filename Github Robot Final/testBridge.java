@@ -21,7 +21,7 @@ import rxtxrobot.RXTXRobot;
 			r.runEncodedMotor(RXTXRobot.MOTOR1, 0, 1, RXTXRobot.MOTOR2, 0, 1);//stops
 			System.out.println("Found Bridge!");
 			LEncoded.ELeft(r, 200);
-			bridgeAttack.bridgeRun(r, 2000);
+			bridgeAttack.bridgeRun(r, 500);//about 4 feet
 		
 		}
 		
