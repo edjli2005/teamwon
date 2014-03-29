@@ -155,7 +155,7 @@ public class robotWindow extends JFrame {
 		sensorPanel.add(Retrieve);
 		sensorPanel.add(coverOpen);
 		sensorPanel.add(coverClose);
-		movementPanel.add(bridgeRun);
+		//movementPanel.add(bridgeRun);
 		movementPanel.add(testPosition);
 		movementPanel.add(getPosition);
 		movementPanel.add(Uturn);

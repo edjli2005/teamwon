@@ -7,7 +7,7 @@ public class ELeft {
 		
 		System.out.println("Motor run time:" + time);
 		
-		r.runEncodedMotor(RXTXRobot.MOTOR1, 90, time, RXTXRobot.MOTOR2, 90, time);
+		r.runEncodedMotor(RXTXRobot.MOTOR1, 120, time, RXTXRobot.MOTOR2, 120, time);//time 65 is about 90 degrees
 		
 
 		
