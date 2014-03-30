@@ -33,7 +33,8 @@ public class salinityTest {
 			System.out.println(PIN5);
 			System.out.println(R);
 			System.out.println();
-			SECOND=FIRST;
+			
+			SECOND=FIRST;//diff is for while loop, has nothing to do with salinity
 			FIRST=R;
 			diff=FIRST-SECOND;
 		}
@@ -47,11 +48,6 @@ public class salinityTest {
 		
 		return Salinity;
 
-//		Salinity=(R-310.52)/26866;
-	//	System.out.println();
-		//System.out.println(Salinity);
-		//}
-		//r.close();
 	}
 
 }

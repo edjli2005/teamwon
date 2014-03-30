@@ -3,7 +3,7 @@ import rxtxrobot.RXTXRobot;
 
 public class Final {
 	public Final(){}
-	public void Final(RXTXRobot r){
+	public void Final(RXTXRobot r,int First,int Second,int Third,int Fourth){
 
 		//Where we can plan out the full run actions and have it execute
 		//with a button
@@ -36,8 +36,8 @@ public class Final {
 		goDown.Down(r, 500);
 		
 		double[] testValues= testWater.waterTests(r);//test water
-		Balls= MATH.waterMath(testValues);
-		Turb100=Balls[0];
+		Balls= MATH.waterMath(testValues,First,Second,Third,Fourth);
+		First=Balls[0];
 		Turb10=Balls[1];
 		Salt100=Balls[2];
 		Salt10=Balls[3];
@@ -50,13 +50,13 @@ public class Final {
 		expectedPosition[1]=0;
 		corrector.testPosition(r,expectedPosition);
 		
-		ballRetrieve.Retrieve(r,Turb100);//retrieves number of balls,change for different placement of dispensers, front-left from start
+		ballRetrieve.Retrieve(r,Balls[0]);//retrieves number of balls,change for different placement of dispensers, front-left from start
 		BEncoded.EBackward(r,10);
 		LEncoded.ELeft(r, 100);
 		FEncoded.EForward(r, 160);//goes to second dispenser//about 2 feet
 		REncoded.ERight(r, 100);
 		FEncoded.EForward(r,20);
-		ballRetrieve.Retrieve(r, Turb10);//change for different placement of dispensers, back-left from start
+		ballRetrieve.Retrieve(r, Balls[1]);//change for different placement of dispensers, back-left from start
 		
 		expectedPosition[0]=0;
 		expectedPosition[1]=0;
@@ -70,13 +70,13 @@ public class Final {
 		expectedPosition[1]=0;
 		corrector.testPosition(r,expectedPosition);
 		
-		ballRetrieve.Retrieve(r,Salt10);//retrieves number of balls, change for different placement of dispensers, back-right from start
+		ballRetrieve.Retrieve(r,Balls[2]);//retrieves number of balls, change for different placement of dispensers, back-right from start
 		BEncoded.EBackward(r,10);
 		LEncoded.ELeft(r, 100);
 		FEncoded.EForward(r, 160);//goes to second dispenser//abou 2 feet
 		REncoded.ERight(r, 100);
 		FEncoded.EForward(r,20);
-		ballRetrieve.Retrieve(r, Salt100);//change for different placement of dispensers, front right from start
+		ballRetrieve.Retrieve(r, Balls[3]);//change for different placement of dispensers, front right from start
 		
 		expectedPosition[0]=0;
 		expectedPosition[1]=0;

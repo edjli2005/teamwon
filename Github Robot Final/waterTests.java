@@ -31,7 +31,7 @@ public class waterTests {
 			PIN3=r.getAnalogPin(3).getValue();//gets pin values
 			PIN4=r.getAnalogPin(4).getValue();
 			PIN5=r.getAnalogPin(5).getValue();
-			PIN11=r.getDigitalPin(11).getValue();
+			//PIN11=r.getDigitalPin(11).getValue();
 			
 			System.out.println("Total Light: "+PIN3);//main turbidity measurement
 			R=PIN4-PIN5;

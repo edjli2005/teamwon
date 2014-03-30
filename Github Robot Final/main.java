@@ -8,7 +8,7 @@ public class main {
 
 	public static void main(String[] args) {
 		RXTXRobot r = new RXTXRobot(); // Create RXTXRobot object 
-		r.setPort("COM4"); // Set the port to COM4 
+		r.setPort("COM5"); // Set the port to COM4 
 		r.setVerbose(true); // Turn on debugging messages 
 		r.setHasEncodedMotors(true); 
 		r.connect(); //connects to robot

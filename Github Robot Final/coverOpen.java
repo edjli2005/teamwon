@@ -6,7 +6,10 @@ public class coverOpen {
 	
 	public coverOpen(){}//constructor 
 	public void coverOpen(RXTXRobot r) {
-		r.moveServo(RXTXRobot.SERVO1, 30);//Opens Cover
+		final Up goUp=new Up();
+		
+		r.moveServo(RXTXRobot.SERVO1, 170);//Opens Cover
+		//goUp.Up(r, 1500);
 		System.out.println("Cover Opened");
 		
 		
