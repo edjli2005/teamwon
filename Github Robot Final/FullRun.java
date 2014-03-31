@@ -18,12 +18,9 @@ public class FullRun {
 		coverOpen ballCoverUp= new coverOpen();
 		coverClose ballCoverDown= new coverClose();
 		Uturn U=new Uturn();
-		testBridge findBridge=new testBridge();
-		
-		
-		
-		
+		testBridge findBridge=new testBridge();		
 		waterMath MATH=new waterMath();
+		
 		int[] Balls;
 		int Turb100,Turb10,Salt100,Salt10;
 		
@@ -85,6 +82,7 @@ public class FullRun {
 		ballCoverUp.coverOpen(r);
 		r.sleep(2500);
 		ballCoverDown.coverClose(r);
-		
+		r.close();
+
 	}
 }

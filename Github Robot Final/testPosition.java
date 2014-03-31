@@ -10,6 +10,7 @@ public class testPosition {
 	correctPosition correction=new correctPosition();
 	expectedPosition=test.getPosition(r,expectedPosition);
 	correction.correctPosition(r, expectedPosition);
-	
+	r.close();
+
 	}
 }

@@ -6,8 +6,6 @@ import rxtxrobot.*;
 
 import java.awt.event.*;
 
-import java.io.*;
-
 
 	
 	
@@ -45,6 +43,9 @@ public class robotWindow extends JFrame {
 		private JButton Uturn= new JButton("U-Turn");
 		private JButton testBridge= new JButton("Test Bridge");
 		private JButton Final = new JButton("Final");
+		private JButton Bump=new JButton("Bump");
+		private JButton IR= new JButton("Test IR");
+		private JButton ColorTest=new JButton("Test Color");
 		
 		public robotWindow(final RXTXRobot r){
 		
@@ -83,12 +84,16 @@ public class robotWindow extends JFrame {
 			final getPosition positionGetter=new getPosition();
 			final Uturn U=new Uturn();
 			final testBridge findBridge=new testBridge();
+			final Bump testBump = new Bump();
+			final IR testIR= new IR();
+			final ColorTest TestColor= new ColorTest();
 			final Final testFinal = new Final();
 			//instantiates calls to all out methods, final b/c final required for threaded action listener 
 			
 		
 			Up.addActionListener(new ActionListener() {//action listener for the button listens
 				public void actionPerformed(ActionEvent e) {//for action event, when the button is pressed
+					r.connect();
 					String Timestring = Timefield1.getText();//converts string input to final integer, b/c final int req. for threaded action listener
 					final int Time=Integer.valueOf(Timestring);
 					goUp.Up(r,Time);//and calls the appropriate method
@@ -98,52 +103,59 @@ public class robotWindow extends JFrame {
 			});
 			//repeated below for all others
 			Down.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); goDown.Down(r,Time); Out.setText("Down Done"); } });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); goDown.Down(r,Time); Out.setText("Down Done"); } });
 			Left.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); turnLeft.Left(r,Time); Out.setText("Left Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); turnLeft.Left(r,Time); Out.setText("Left Done");} });
 			Right.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); turnRight.Right(r,Time); Out.setText("Right Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); turnRight.Right(r,Time); Out.setText("Right Done");} });
 			Forward.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); moveForward.Forward(r,Time); Out.setText("Forward Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); moveForward.Forward(r,Time); Out.setText("Forward Done");} });
 			Backward.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); moveBackward.Backward(r,Time); Out.setText("Backward Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); moveBackward.Backward(r,Time); Out.setText("Backward Done");} });
 			Water.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {testWater.waterTests(r); Out.setText("Water Tests Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();testWater.waterTests(r); Out.setText("Water Tests Done");} });
 			Salinity.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {testSalinity.salinityTest(r); Out.setText("Salt Test Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();testSalinity.salinityTest(r); Out.setText("Salt Test Done");} });
 			Turbidity.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {testTurbidity.turbidityTest(r); Out.setText("Turb. Test Done");} });
+				public void actionPerformed(ActionEvent e) {r.connect();testTurbidity.turbidityTest(r); Out.setText("Turb. Test Done");} });
 			Run.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {LolasFolly.FULLRUN(r); Out.setText("Lola's Folly Done?");} });	
+				public void actionPerformed(ActionEvent e) {r.connect();LolasFolly.FULLRUN(r); Out.setText("Lola's Folly Done?");} });	
 			getPing.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {Ping.getPing(r); Out.setText("PING!!");} });	
+				public void actionPerformed(ActionEvent e) {r.connect();Ping.getPing(r); Out.setText("PING!!");} });	
 			EForward.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); FEncoded.EForward(r,Time); Out.setText("EForward Done"); } });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); FEncoded.EForward(r,Time); Out.setText("EForward Done"); } });
 			EBackward.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); BEncoded.EBackward(r,Time); Out.setText("EBackward Done"); } });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); BEncoded.EBackward(r,Time); Out.setText("EBackward Done"); } });
 			ELeft.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); REncoded.ERight(r,Time); Out.setText("ELeft Done"); } });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); REncoded.ERight(r,Time); Out.setText("ELeft Done"); } });
 			ERight.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); LEncoded.ELeft(r,Time); Out.setText("ERight Done"); } });		
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); LEncoded.ELeft(r,Time); Out.setText("ERight Done"); } });		
 			Retrieve.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); ballRetrieve.Retrieve(r, Time); Out.setText("Retrieve Done"); } });
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); ballRetrieve.Retrieve(r, Time); Out.setText("Retrieve Done"); } });
 			coverOpen.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {ballCoverUp.coverOpen(r); Out.setText("Cover Opened");} });
+				public void actionPerformed(ActionEvent e) {r.connect();ballCoverUp.coverOpen(r); Out.setText("Cover Opened");} });
 			coverClose.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {ballCoverDown.coverClose(r); Out.setText("Cover Closed");} });
+				public void actionPerformed(ActionEvent e) {r.connect();ballCoverDown.coverClose(r); Out.setText("Cover Closed");} });
 			bridgeRun.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); bridgeAttack.bridgeRun(r,Time); Out.setText("Bridge Bridged!");} });
+				public void actionPerformed(ActionEvent e) {r.connect();bridgeAttack.bridgeRun(r); Out.setText("Bridge Bridged!");} });
 			testPosition.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {corrector.testPosition(r, expectedPosition); Out.setText("Position Corrected!");} });
+				public void actionPerformed(ActionEvent e) {r.connect();corrector.testPosition(r, expectedPosition); Out.setText("Position Corrected!");} });
 			getPosition.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {positionGetter.getPosition(r,expectedPosition); Out.setText("Position Got!");} });
+				public void actionPerformed(ActionEvent e) {r.connect();positionGetter.getPosition(r,expectedPosition); Out.setText("Position Got!");} });
 			Uturn.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); U.Uturn(r, Time); Out.setText("OTHER WAY OTHER WAY!!");} });	
+				public void actionPerformed(ActionEvent e) {r.connect();String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); U.Uturn(r, Time); Out.setText("OTHER WAY OTHER WAY!!");} });	
 			testBridge.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {findBridge.testBridge(r); Out.setText("Found it.");} });
+				public void actionPerformed(ActionEvent e) {r.connect();findBridge.testBridge(r); Out.setText("Found it.");} });
+			Bump.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {r.connect();testBump.Bump(r); Out.setText("BUMP!!");} });
+			IR.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {r.connect();testIR.IR(r); Out.setText("IR DUDES!!");} });
+			ColorTest.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {r.connect();TestColor.ColorTest(r); Out.setText("SEPIA FTW!!");} });
 			Final.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String First = Timefield1.getText();String Second = Timefield2.getText();String Third = Timefield3.getText();String Fourth = Timefield4.getText();
 				final int Points1=Integer.valueOf(First);final int Points2=Integer.valueOf(Second);final int Points3=Integer.valueOf(Third);final int Points4=Integer.valueOf(Fourth);testFinal.Final(r,Points1,Points2,Points3,Points4); Out.setText("FINALLY!!");} });
+				//Pulls input from all four boxes, each one being the value of the dispensers. The code pretty much accepts input the same as the other methods four times.
 			
 			movementPanel.add(Up);
 			movementPanel.add(Down);
@@ -163,12 +175,15 @@ public class robotWindow extends JFrame {
 			sensorPanel.add(testBridge);
 			sensorPanel.add(coverOpen);
 			sensorPanel.add(coverClose);
-			//movementPanel.add(bridgeRun);
+			movementPanel.add(bridgeRun);
 			movementPanel.add(Uturn);
 			movementPanel.add(testPosition);
 			//movementPanel.add(getPosition);	
 			movementPanel.add(Run);
 			movementPanel.add(Final);
+			sensorPanel.add(Bump);
+			sensorPanel.add(IR);
+			sensorPanel.add(ColorTest);
 			
 			sensorPanel.add(Timefield1);
 			sensorPanel.add(Timefield2);

@@ -9,6 +9,7 @@ public class EBackward {
 		
 		r.runEncodedMotor(RXTXRobot.MOTOR1, 90, time, RXTXRobot.MOTOR2, -130, time);
 		
+		r.close();
 
 		
 	}

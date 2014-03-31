@@ -42,6 +42,7 @@ public class getPosition {
 		Coordinates[3]=PingY;
 		System.out.print("Coordinates: "+Coordinates[2]+", "+Coordinates[3]);
 		return Coordinates;
-		
+	
+
 	}
 }
