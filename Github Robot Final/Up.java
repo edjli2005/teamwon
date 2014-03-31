@@ -8,7 +8,6 @@ public class Up {
 		
 		System.out.println("Up Done");
 		//r.sleep(1500);
-		r.close();
 		
 	}
 	

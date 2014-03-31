@@ -25,7 +25,6 @@ import rxtxrobot.RXTXRobot;
 			LEncoded.ELeft(r, 100);
 			
 			bridgeAttack.bridgeRun(r, 500);//about 4 feet
-			r.close();
 
 		}
 		

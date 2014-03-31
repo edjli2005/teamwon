@@ -30,7 +30,7 @@ public class bridgeRun {
 		}
 		r.runEncodedMotor(RXTXRobot.MOTOR1, 0, 0, RXTXRobot.MOTOR2, 0, 0);
 		System.out.println("Bridge HO!");
-		r.close();
+		
 
 	}
 	

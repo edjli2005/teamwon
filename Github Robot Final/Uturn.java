@@ -13,7 +13,6 @@ public class Uturn {
 		}
 		
 		
-		r.close();
 
 
 		

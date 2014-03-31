@@ -13,6 +13,5 @@ public class IR {
 			System.out.println("IR: " + IRreadings); 
 			r.sleep(1000);
 		} 
-		r.close();
 	}
 }

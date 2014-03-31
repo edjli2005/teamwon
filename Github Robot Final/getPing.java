@@ -11,7 +11,6 @@ public class getPing {
 					
 					r.sleep(1000); 
 				} 
-				r.close(); 
 			} 
 		} 
 	 	

@@ -11,7 +11,6 @@ public class Retrieve {
 	}
 		
 		System.out.println("Retireve Done");
-		r.close();
 
 	}
 }

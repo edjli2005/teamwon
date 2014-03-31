@@ -12,6 +12,5 @@ public class ColorTest {
 			System.out.println("COLOR: " +colorReadings); 
 			r.sleep(1000);
 		} 
-		r.close();
 	}
 }
