@@ -41,7 +41,7 @@ public class salinityTest {
 			FIRST=R;
 			diff=FIRST-SECOND;
 		}
-		double Salinity=(R-460.29)/-62.422;
+		double Salinity= (0.1254*R) - 10.074;
 		System.out.println(PIN4);
 		System.out.println(PIN5);
 		//System.out.println(PIN11);

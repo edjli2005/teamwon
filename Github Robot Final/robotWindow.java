@@ -46,6 +46,7 @@ public class robotWindow extends JFrame {
 		private JButton Bump=new JButton("Bump");
 		private JButton IR= new JButton("Test IR");
 		private JButton ColorTest=new JButton("Test Color");
+		private JButton ballArm=new JButton("Ball Arm");
 		
 		public robotWindow(final RXTXRobot r){
 		
@@ -87,6 +88,7 @@ public class robotWindow extends JFrame {
 			final Bump testBump = new Bump();
 			final IR testIR= new IR();
 			final ColorTest TestColor= new ColorTest();
+			final ballArm getBall= new ballArm();
 			final Final testFinal = new Final();
 			//instantiates calls to all out methods, final b/c final required for threaded action listener 
 			
@@ -152,6 +154,8 @@ public class robotWindow extends JFrame {
 				public void actionPerformed(ActionEvent e) {testIR.IR(r); Out.setText("IR DUDES!!");} });
 			ColorTest.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {TestColor.ColorTest(r); Out.setText("SEPIA FTW!!");} });
+			ballArm.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring);getBall.ballArm(r,Time); Out.setText("SEPIA FTW!!");} });
 			Final.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String First = Timefield1.getText();String Second = Timefield2.getText();String Third = Timefield3.getText();String Fourth = Timefield4.getText();
 				final int Points1=Integer.valueOf(First);final int Points2=Integer.valueOf(Second);final int Points3=Integer.valueOf(Third);final int Points4=Integer.valueOf(Fourth);testFinal.Final(r,Points1,Points2,Points3,Points4); Out.setText("FINALLY!!");} });
@@ -184,6 +188,7 @@ public class robotWindow extends JFrame {
 			sensorPanel.add(Bump);
 			sensorPanel.add(IR);
 			sensorPanel.add(ColorTest);
+			sensorPanel.add(ballArm);
 			
 			sensorPanel.add(Timefield1);
 			sensorPanel.add(Timefield2);

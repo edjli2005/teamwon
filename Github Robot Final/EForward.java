@@ -7,7 +7,7 @@ public class EForward {
 		
 		System.out.println("Motor run time:" + time);
 		//motor 1 is right motor 2 is left
-		r.runEncodedMotor(RXTXRobot.MOTOR1, -105,  time, RXTXRobot.MOTOR2, 125, time);
+		r.runEncodedMotor(RXTXRobot.MOTOR1, -105,  time, RXTXRobot.MOTOR2, 150, time);
 
 		//100 ticks is
 		//14.5 in
@@ -18,6 +18,9 @@ public class EForward {
 		//14.3
 		//14.4
 		//13.8
+		//AVG 14.4 in/100 Ticks
+		//1.4 in/10 Ticks
+		//.14 in/Tick
 		}
 
 }

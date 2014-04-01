@@ -44,11 +44,11 @@ public class waterTests {
 			System.out.println("Current 2: "+PIN5);
 			System.out.println("Current Diff: "+R);
 			System.out.println("Conductivity: "+ con);
-		//	Turbidity=(Math.log(PIN3))/a;//turbidity math
+			Turbidity=(Math.log(PIN3))/a;//turbidity math
 		//	System.out.println("Possible Turbidity: " + Turbidity);
 			
-		//	Salinity=(R-211.105755695)/104.3674879954;//salinity math
-			//NEW SALINITY=(R-460.29)/-62.422
+			Salinity=(0.1254*R) - 10.074;//salinity math
+			
 		//	System.out.println("Possible Salinity: "+Salinity);
 			
 			TSECOND=TFIRST;
