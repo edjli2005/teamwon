@@ -21,32 +21,36 @@ public class salinityTest {
 		double diff=100;
 		double FIRST=100;
 		double SECOND=-1;
-		while(diff>1||diff<-1){
-			r.sleep(3000);
+		int con = -1;
+		while(diff!=0){//diff>1||diff<-1
+			r.sleep(1000);
 			r.refreshAnalogPins();
 			r.refreshDigitalPins();
 			PIN4=r.getAnalogPin(4).getValue();
 			PIN5=r.getAnalogPin(5).getValue();
+			con=r.getConductivity();
 			PIN11=r.getDigitalPin(11).getValue();
 			R=PIN4-PIN5;
 			System.out.println(PIN4);
 			System.out.println(PIN5);
 			System.out.println(R);
+			System.out.println(con);
 			System.out.println();
 			
 			SECOND=FIRST;//diff is for while loop, has nothing to do with salinity
 			FIRST=R;
 			diff=FIRST-SECOND;
 		}
-		double Salinity=(R-211.105755695)/104.3674879954;
-		//System.out.println(PIN4);
-		//System.out.println(PIN5);
+		double Salinity=(R-460.29)/-62.422;
+		System.out.println(PIN4);
+		System.out.println(PIN5);
 		//System.out.println(PIN11);
-		//System.out.println(R);
+		System.out.println(R);
+		System.out.println(con);
 		//Salinity=distance/(R*area);
 		System.out.println(Salinity);
 
-		return Salinity;
+		return R;
 
 	}
 

@@ -9,7 +9,7 @@ public class main {
 	public static void main(String[] args) {
 		RXTXRobot r = new RXTXRobot(); // Create RXTXRobot object 
 		r.setPort("COM4"); // Set the port to COM4 
-		r.setVerbose(true); // Turn on debugging messages 
+		//r.setVerbose(true); // Turn on debugging messages 
 		r.setHasEncodedMotors(true); 
 		r.connect(); //connects to robot
 	//10 ticks is 1.5 in
@@ -22,7 +22,7 @@ public class main {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setTitle("LOLA'S TO-DO-LIST");
 		window.pack();
-		window.getContentPane().setBackground(Color.pink);
+		window.getContentPane().setBackground(Color.black);
 		//basic window creation and robot connection
 		
 		

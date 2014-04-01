@@ -5,12 +5,11 @@ public class Retrieve {
 	public void Retrieve(RXTXRobot r, final int Times) {
 		
 		for(int i=0;i<Times;i++){
-			
-		r.runMotor(RXTXRobot.MOTOR3, -175,500 );
-		r.runMotor(RXTXRobot.MOTOR3,175,500 );
+			r.runEncodedMotor(RXTXRobot.MOTOR1, -105, 50, RXTXRobot.MOTOR2, 125, 50);
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 105, 50, RXTXRobot.MOTOR2, -125, 50);
 	}
 		
-		System.out.println("Retireve Done");
+		System.out.println("Retrieve Done");
 
 	}
 }

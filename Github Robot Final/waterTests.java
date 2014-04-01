@@ -23,6 +23,7 @@ public class waterTests {
 		double Sdiff=100;
 		double SFIRST=100;
 		double SSECOND=-1;
+		double con=-1;
 		while((Tdiff>1||Tdiff<-1)||(Sdiff>1||Sdiff<-1)){//While values are still rapidly changing
 			//Turbidity									//because the sensors haven't calibrated
 			r.sleep(3000);								//to the water, keep testing the water
@@ -31,20 +32,24 @@ public class waterTests {
 			PIN3=r.getAnalogPin(3).getValue();//gets pin values
 			PIN4=r.getAnalogPin(4).getValue();
 			PIN5=r.getAnalogPin(5).getValue();
+			con=r.getConductivity();
 			//PIN11=r.getDigitalPin(11).getValue();
 			
+			System.out.println("Turbidity!");
 			System.out.println("Total Light: "+PIN3);//main turbidity measurement
 			R=PIN4-PIN5;
 			
+			System.out.println("Salinity!");
 			System.out.println("Current 1: "+PIN4);//main salinity measurements
-			System.out.println("Current 1: "+PIN5);
+			System.out.println("Current 2: "+PIN5);
 			System.out.println("Current Diff: "+R);
+			System.out.println("Conductivity: "+ con);
+		//	Turbidity=(Math.log(PIN3))/a;//turbidity math
+		//	System.out.println("Possible Turbidity: " + Turbidity);
 			
-			Turbidity=(Math.log(PIN3))/a;//turbidity math
-			System.out.println("Possible Turbidity: " + Turbidity);
-			
-			Salinity=(R-211.105755695)/104.3674879954;//salinity math
-			System.out.println("Possible Salinity: "+Salinity);
+		//	Salinity=(R-211.105755695)/104.3674879954;//salinity math
+			//NEW SALINITY=(R-460.29)/-62.422
+		//	System.out.println("Possible Salinity: "+Salinity);
 			
 			TSECOND=TFIRST;
 			TFIRST=PIN3;
@@ -61,8 +66,8 @@ public class waterTests {
 		//System.out.println(PIN11);
 		//System.out.println(R);
 		//Salinity=distance/(R*area);
-		System.out.println("Final Turbidity: "+ Turbidity);//final outputs, will be put into array
-		System.out.println("Final Salinity: "+Salinity);
+	//	System.out.println("Final Turbidity: "+ Turbidity);//final outputs, will be put into array
+	//	System.out.println("Final Salinity: "+Salinity);
 		testValues[0]=Turbidity;
 		testValues[1]=Salinity;
 		

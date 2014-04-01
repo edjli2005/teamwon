@@ -21,13 +21,13 @@ public class turbidityTest {
 		double SECOND=-1;
 		double Turbidity=-1;
 		double a=0.03356972;
-		while(diff>1||diff<-1){
-			r.sleep(3000);
+		while(diff!=0){//diff>1||diff<-1
+			r.sleep(5000);
 			r.refreshAnalogPins();
 			double PIN3=r.getAnalogPin(3).getValue();
 			System.out.println(PIN3);	
 			Turbidity=(Math.log(PIN3))/a;
-			System.out.println("THE TURBIDITY IS PROBABLY " + Turbidity);
+			//System.out.println("THE TURBIDITY IS PROBABLY " + Turbidity);
 			SECOND=FIRST;
 			FIRST=PIN3;
 			

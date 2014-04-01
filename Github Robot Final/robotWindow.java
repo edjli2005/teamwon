@@ -56,8 +56,8 @@ public class robotWindow extends JFrame {
 			sensorPanel.setLayout(new GridLayout(6,2));
 			movementPanel.setPreferredSize(new Dimension(300,200));
 			sensorPanel.setPreferredSize(new Dimension(300,200));
-			movementPanel.setBackground(Color.magenta);
-			sensorPanel.setBackground(Color.cyan);
+			movementPanel.setBackground(Color.red);
+			sensorPanel.setBackground(Color.red);
 			//instantiates panels and sets their defaults
 			final double[] expectedPosition={60,40};
 			
@@ -126,10 +126,10 @@ public class robotWindow extends JFrame {
 				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); FEncoded.EForward(r,Time); Out.setText("EForward Done"); } });
 			EBackward.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); BEncoded.EBackward(r,Time); Out.setText("EBackward Done"); } });
-			ELeft.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); REncoded.ERight(r,Time); Out.setText("ELeft Done"); } });
 			ERight.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); LEncoded.ELeft(r,Time); Out.setText("ERight Done"); } });		
+				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); REncoded.ERight(r,Time); Out.setText("ERight Done"); } });
+			ELeft.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); LEncoded.ELeft(r,Time); Out.setText("ELeft Done"); } });		
 			Retrieve.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); ballRetrieve.Retrieve(r, Time); Out.setText("Retrieve Done"); } });
 			coverOpen.addActionListener(new ActionListener() {
