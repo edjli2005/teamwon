@@ -3,7 +3,7 @@ import rxtxrobot.RXTXRobot;
 
 public class ColorTest {
 	ColorTest(){}
-	public void ColorTest(RXTXRobot r){
+	public int ColorTest(RXTXRobot r){
 		int colorReadings=-1;
 		for(int i=0;i<25;i++)
 		{ 
@@ -12,5 +12,6 @@ public class ColorTest {
 			System.out.println("COLOR: " +colorReadings); 
 			r.sleep(1000);
 		} 
+		return int;
 	}
 }

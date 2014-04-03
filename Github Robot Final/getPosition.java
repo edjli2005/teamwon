@@ -2,24 +2,21 @@ import rxtxrobot.RXTXRobot;
 
 
 public class getPosition {
-	//Position(){}
-	public double[] getPosition(RXTXRobot r,  double[] expectedPosition){
-		double PingX=0,PingY=0;
-		for (int x=0; x < 10; ++x) 
-		{ 
-			System.out.println("Response: " + r.getPing() + " cm"); 
-			r.sleep(300); 
-			PingX=r.getPing();
-		} 
-		for (int x=0; x < 10; ++x) 
-		{ 
-			System.out.println("Response: " + r.getPing() + " cm"); 
-			r.sleep(300); 
-			PingY=r.getPing();
-		} 
-		double[] Coordinates={PingX,PingY,0,0};
-		double XChanges=0;
-		double YChanges=0;
+	public getPosition(){}
+	public int[] getPosition(RXTXRobot r,  int[] expectedPosition){
+		setPing newPing=new setPing();
+		int PingX=0,PingY=0;
+		
+		  	
+		PingX=newPing.setPing(r,0);//Delay for getting precise ping now incorporated in overloaded getPing function
+		System.out.println("X Coordinate is " + PingX ); 
+			
+	
+		PingY=newPing.setPing(r,1);//Delay for getting precise ping now incorporated in overloaded getPing function
+		System.out.println("Y Coordinate is" + PingY ); 
+			
+		int[] Coordinates={PingX,PingY,0,0};
+		int XChanges=0,YChanges=0;
 		
 		if (Coordinates[0]!=expectedPosition[0]){
 			System.out.print("Current X is incorrect.\n");

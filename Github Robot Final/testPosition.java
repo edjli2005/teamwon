@@ -3,7 +3,7 @@ import rxtxrobot.RXTXRobot;
 
 public class testPosition {
 	public testPosition(){}
-	public void testPosition(RXTXRobot r, double [] expectedPosition) {
+	public void testPosition(RXTXRobot r, int [] expectedPosition) {
 	
 	
 	getPosition test=new getPosition();

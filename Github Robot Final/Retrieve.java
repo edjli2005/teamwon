@@ -5,8 +5,8 @@ public class Retrieve {
 	public void Retrieve(RXTXRobot r, final int Times) {
 		
 		for(int i=0;i<Times;i++){
-			r.runEncodedMotor(RXTXRobot.MOTOR1, -105, 50, RXTXRobot.MOTOR2, 125, 50);
-			r.runEncodedMotor(RXTXRobot.MOTOR1, 105, 50, RXTXRobot.MOTOR2, -125, 50);
+			r.runMotor(RXTXRobot.MOTOR1, -130, RXTXRobot.MOTOR2, 160,1000 );//starts moving
+			r.runEncodedMotor(RXTXRobot.MOTOR1, 100, 75, RXTXRobot.MOTOR2, -125, 75);
 	}
 		
 		System.out.println("Retrieve Done");

@@ -50,7 +50,7 @@ public class salinityTest {
 		//Salinity=distance/(R*area);
 		System.out.println(Salinity);
 
-		return R;
+		return Salinity;
 
 	}
 

@@ -24,7 +24,7 @@ public class waterTests {
 		double SFIRST=100;
 		double SSECOND=-1;
 		double con=-1;
-		while((Tdiff>1||Tdiff<-1)||(Sdiff>1||Sdiff<-1)){//While values are still rapidly changing
+		while(((Sdiff>1||Sdiff<-1))){//While values are still rapidly changing
 			//Turbidity									//because the sensors haven't calibrated
 			r.sleep(3000);								//to the water, keep testing the water
 			r.refreshAnalogPins();
@@ -44,11 +44,11 @@ public class waterTests {
 			System.out.println("Current 2: "+PIN5);
 			System.out.println("Current Diff: "+R);
 			System.out.println("Conductivity: "+ con);
-			Turbidity=(Math.log(PIN3))/a;//turbidity math
+			//Turbidity=(Math.log(PIN3))/a;//turbidity math
 		//	System.out.println("Possible Turbidity: " + Turbidity);
 			
 			Salinity=(0.1254*R) - 10.074;//salinity math
-			
+			System.out.println(Salinity);
 		//	System.out.println("Possible Salinity: "+Salinity);
 			
 			TSECOND=TFIRST;

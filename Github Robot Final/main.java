@@ -13,8 +13,8 @@ public class main {
 		//r.setVerbose(true); // Turn on debugging messages 
 		r.setHasEncodedMotors(true); 
 		//r.connect(); //connects to robot
-	//10 ticks is 1.5 in
-	//1 tick is .15 in
+		//10 ticks is 1.5 in
+		//1 tick is .15 in
 		PrintStream Carrol = null;//new PrintStream('End of all time");
 		try {
 			Carrol = new PrintStream(new File("output.txt"));
