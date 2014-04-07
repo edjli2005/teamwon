@@ -19,7 +19,7 @@ public class robotWindow extends JFrame {
 		private JButton Down =new JButton("Down");
 		private JButton Left =new JButton("LEFT");
 		private JButton Right =new JButton("RIGHT");
-		private JButton Water =new JButton("TEST ALL");
+		private JButton Water =new JButton("TEST WATER");
 		private JButton Salinity =new JButton("TEST SALT");
 		private JButton Turbidity =new JButton("TEST TURB.");
 		private JButton Forward =new JButton("FORWARD");
@@ -49,6 +49,7 @@ public class robotWindow extends JFrame {
 		private JButton IR= new JButton("Test IR");
 		private JButton ColorTest=new JButton("Test Color");
 		private JButton ballArm=new JButton("Ball Arm");
+		private JButton getEPosition = new JButton ("EPosition");
 		
 		private JButton getCoordinates= new JButton("Get Coordinates");
 		
@@ -105,6 +106,7 @@ public class robotWindow extends JFrame {
 			final IR testIR= new IR();
 			final ColorTest TestColor= new ColorTest();
 			final ballArm getBall= new ballArm();
+			final getEPosition EPosition = new getEPosition();
 			final LolaObjectMichael Lola= new  LolaObjectMichael();
 			final Final testFinal = new Final();
 			
@@ -138,7 +140,6 @@ public class robotWindow extends JFrame {
 				public void actionPerformed(ActionEvent e) {testSalinity.salinityTest(r); Out.setText("Salt Test Done");} });
 			Turbidity.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {testTurbidity.turbidityTest(r); Out.setText("Turb. Test Done");} });
-			
 			setPingX.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {int returnPing=PingX.setPing(r,0); Out.setText("PING X is "+returnPing);} });	
 			setPingY.addActionListener(new ActionListener() {
@@ -178,6 +179,7 @@ public class robotWindow extends JFrame {
 			Final.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String First = Timefield1.getText();String Second = Timefield2.getText();String Third = Timefield3.getText();String Fourth = Timefield4.getText();
 				final int Points1=Integer.valueOf(First);final int Points2=Integer.valueOf(Second);final int Points3=Integer.valueOf(Third);final int Points4=Integer.valueOf(Fourth);testFinal.Final(r,Points1,Points2,Points3,Points4); Out.setText("FINALLY!!");} });
+			//Pulls input from all four boxes, each one being the value of the dispensers. The code pretty much accepts input the same as the other methods four times.
 			
 			getCoordinates.addActionListener(new ActionListener(){
 				 public void actionPerformed(ActionEvent e){int [] Coordinates=Lola.getCoordinates();Out.setText("Coordinates are ["+ Coordinates[0]+","+ Coordinates[1]+"]"); }});
@@ -192,8 +194,10 @@ public class robotWindow extends JFrame {
 				public void actionPerformed(ActionEvent e){String First = Timefield1.getText();final int Salt=Integer.valueOf(First);String Confirm=Lola.setSaltBall(Salt);Out.setText(Confirm);}});
 			setTurbBall.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){String First = Timefield1.getText();final int Turb=Integer.valueOf(First);String Confirm=Lola.setTurbBall(Turb);Out.setText(Confirm);}});
+			getEPosition.addActionListener(new ActionListener(){
+				 public void actionPerformed(ActionEvent e){int [] Position=EPosition.getEPosition(r);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
 			
-			//Pulls input from all four boxes, each one being the value of the dispensers. The code pretty much accepts input the same as the other methods four times.
+			
 			
 			movementPanel.add(Up);
 			movementPanel.add(Down);
@@ -214,10 +218,10 @@ public class robotWindow extends JFrame {
 			//sensorPanel.add(testBridge);
 			sensorPanel.add(coverOpen);
 			sensorPanel.add(coverClose);
-			movementPanel.add(bridgeRun);
+			//movementPanel.add(bridgeRun);
 			movementPanel.add(Uturn);
 			movementPanel.add(testPosition);
-			//movementPanel.add(getPosition);	
+			movementPanel.add(getEPosition);	
 			
 			movementPanel.add(Final);
 			sensorPanel.add(Bump);

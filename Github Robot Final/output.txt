@@ -1,5 +1,4 @@
-Response: -1 cm
-Response: -1 cm
-Response: -1 cm
-Response: -1 cm
-Response: -1 cm
+X Coordinate is now 10 AND 10
+Y Coordinate is now 20 AND 20
+Coordinates now [10,20] AND [10,20]
+Getting Coordinates: [10,20]

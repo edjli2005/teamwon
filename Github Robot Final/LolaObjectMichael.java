@@ -5,6 +5,8 @@ public class LolaObjectMichael {
 	int[] Coordinates=new int[2];
 	int turbBallNumber;
 	int saltBallNumber;
+	int DistanceX;
+	int DistanceY;
 	//declarations for all attributes
 	public void LolaObjectMichael(){}
 	
@@ -75,4 +77,25 @@ public class LolaObjectMichael {
 		System.out.println("Getting Coordinates: ["+ Coordinates[0]+","+Coordinates[1]+"]");
 		return Coordinates;
 	}
+	public String setDistanceXTraveled(int newDistanceX){//passed in theory by encoders
+		DistanceX=DistanceX+newDistanceX;
+		String Confirm=("Total X Distance Traveled: "+DistanceX);
+		System.out.println(Confirm);
+		return Confirm;
+	}
+	public int getDistanceXTraveled(){
+		System.out.println("Total X Distance Traveled: "+DistanceX);
+		return DistanceX;
+	}
+	public String setDistanceYTraveled(int newDistanceY){
+		DistanceY=DistanceY+newDistanceY;
+		String Confirm=("Total Y Distance Traveled: "+DistanceY);
+		System.out.println(Confirm);
+		return Confirm;	
+	}
+	public int getDistanceYTraveled(){
+		System.out.println("Total Y Distance Traveled: "+DistanceY);
+		return DistanceY;
+	}
+	
 }

@@ -2,7 +2,7 @@ import rxtxrobot.*;
 
 public class setPing {
 	public void setPing(){}
-	public int setPing(RXTXRobot r, int whichPing, LolaObjectMichael Lola ) //function gets ping from sensor depending on
+	public int setPing(RXTXRobot r, int whichPing, LolaObjectMichael Lola ) //function gets ping from sensor depending on whichPing telling it which ping sensor to pull from
 	{ 
 		int Ping = -1;
 	
