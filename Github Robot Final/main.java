@@ -9,13 +9,13 @@ public class main {
 
 	public static void main(String[] args) {//PROGRAM ARDUINO IN ANSI C
 		RXTXRobot r = new RXTXRobot(); // Create RXTXRobot object 
-		r.setPort("COM4"); // Set the port to COM4 
+		r.setPort("COM3"); // Set the port to COM4 
 		r.setVerbose(true); // Turn on debugging messages 
 		r.setHasEncodedMotors(true); 
-		r.connect(); //connects to robot
+		//r.connect(); //connects to robot
 		//10 ticks is 1.5 in
 		//1 tick is .15 in
-		PrintStream Carrol = null;//new PrintStream('End of all time");
+		/*PrintStream Carrol = null;//new PrintStream('End of all time");
 		try {
 			Carrol = new PrintStream(new File("output.txt"));
 			//System.out.println("Ryan Hardy is meaningless to Carrol??!!");
@@ -27,6 +27,19 @@ public class main {
 		System.setOut(Carrol);
 		//System.out.println("Why not Poe?");
 		//Carrol.println("Ryan Hardy. The one cop who refuses to carry a tazer. Despite the hordes of crazies with knives.");
+		*/
+		try{
+			File file= new File("output.txt");
+			FileOutputStream FOS = new FileOutputStream(file, true);
+			PrintStream HA = new PrintStream(FOS);
+			System.setOut(HA);
+			FOS.toString();
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("OMFG CLAIRE'S ALIVE!!!!");
+		}
+		System.out.println("YOYO");
 		
 		robotWindow window= new robotWindow(r);
 		window.setSize(600,175);

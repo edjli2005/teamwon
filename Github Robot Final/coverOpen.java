@@ -10,6 +10,7 @@ public class coverOpen {
 	
 		r.moveServo(RXTXRobot.SERVO1, 160);//Opens Cover
 		System.out.println("Cover Opened");
+		
 
 		
 	

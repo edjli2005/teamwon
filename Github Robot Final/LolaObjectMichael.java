@@ -13,7 +13,7 @@ public class LolaObjectMichael {
 	public String setX(int newX){//sets X, sets Lola's X coordinate, prints and returns a string confirmation
 		X=newX;
 		Coordinates [0]=newX;
-		String Confirm=("X Coordinate is now "+ X + " AND " +newX);
+		String Confirm=("X Coordinate is now "+ X +"!");
 		System.out.println(Confirm);
 		return Confirm;
 	}
@@ -25,7 +25,7 @@ public class LolaObjectMichael {
 	public String setY(int newY){//sets Y, prints and returns a string confirmation
 		Y=newY;
 		Coordinates[1]=newY;
-		String Confirm=("Y Coordinate is now "+ Y + " AND " +newY);
+		String Confirm=("Y Coordinate is now "+ Y + "!");
 		System.out.println(Confirm);
 		return Confirm;
 	}
@@ -36,7 +36,7 @@ public class LolaObjectMichael {
 	
 	public String setTurbBall(int newTurbBall){//sets number of turbidity balls being carried, prints and returns a string confirmation
 		turbBallNumber=newTurbBall;
-		String Confirm=("Turbidity balls now "+ turbBallNumber + " AND " +newTurbBall);
+		String Confirm=("Turbidity balls now "+ turbBallNumber + "!");
 		System.out.println(Confirm);
 		return Confirm;
 	}
@@ -47,7 +47,7 @@ public class LolaObjectMichael {
 	
 	public String setSaltBall(int newSaltBall){//sets number of salt balls being carried, prints and returns a string confirmation
 		saltBallNumber=newSaltBall;
-		String Confirm=("Salinity balls now "+ saltBallNumber + " AND " +newSaltBall);
+		String Confirm=("Salinity balls now "+ saltBallNumber + "!");
 		System.out.println(Confirm);
 		return Confirm;
 	}
@@ -60,7 +60,7 @@ public class LolaObjectMichael {
 		Coordinates=newCoordinates;
 		setX(Coordinates[0]);
 		setY(Coordinates[1]);
-		String Confirm=("Coordinates now ["+ Coordinates[0]+","+Coordinates[1] + "] AND [" +newCoordinates[0]+","+newCoordinates[1]+"]" );
+		String Confirm=("Coordinates now [" + Coordinates[0] + "," + Coordinates[1] + "!");
 		System.out.println(Confirm);
 		return Confirm;
 	}
@@ -69,32 +69,32 @@ public class LolaObjectMichael {
 		Coordinates[1]=newY;
 		setX(newX);
 		setY(newY);
-		String Confirm= ("Coordinates now ["+ Coordinates[0]+","+Coordinates[1] + "] AND [" +newX+","+newY+"]" );
+		String Confirm= ("Coordinates now [" + Coordinates[0] + "," + Coordinates[1] + "]!" );
 		System.out.println(Confirm);
 		return Confirm;
 	}
 	public int[] getCoordinates(){
-		System.out.println("Getting Coordinates: ["+ Coordinates[0]+","+Coordinates[1]+"]");
+		System.out.println("Getting Coordinates: [" + Coordinates[0] + "," + Coordinates[1] + "]" );
 		return Coordinates;
 	}
 	public String setDistanceXTraveled(int newDistanceX){//passed in theory by encoders
 		DistanceX=DistanceX+newDistanceX;
-		String Confirm=("Total X Distance Traveled: "+DistanceX);
+		String Confirm=("Total X Distance Traveled: " + DistanceX);
 		System.out.println(Confirm);
 		return Confirm;
 	}
 	public int getDistanceXTraveled(){
-		System.out.println("Total X Distance Traveled: "+DistanceX);
+		System.out.println("Total X Distance Traveled: " + DistanceX);
 		return DistanceX;
 	}
 	public String setDistanceYTraveled(int newDistanceY){
 		DistanceY=DistanceY+newDistanceY;
-		String Confirm=("Total Y Distance Traveled: "+DistanceY);
+		String Confirm=("Total Y Distance Traveled: " + DistanceY);
 		System.out.println(Confirm);
 		return Confirm;	
 	}
 	public int getDistanceYTraveled(){
-		System.out.println("Total Y Distance Traveled: "+DistanceY);
+		System.out.println("Total Y Distance Traveled: " + DistanceY);
 		return DistanceY;
 	}
 	
