@@ -2,34 +2,46 @@ import rxtxrobot.*;
 
 public class setPing {
 	public void setPing(){}
-	public int setPing(RXTXRobot r, int whichPing, LolaObjectMichael Lola ) //function gets ping from sensor depending on whichPing telling it which ping sensor to pull from
+	public void setPing(RXTXRobot r, int whichPing, LolaObjectMichael Lola ) //function gets ping from sensor depending on whichPing telling it which ping sensor to pull from
 	{ 
-		int Ping = -1;
+		int Pingx = -1;
+		int Pingy = -1;
 	
 		if(whichPing==0){
 			for (int x=0; x < 5; x++) //for the X Coordinate
 			{
 				r.refreshAnalogPins(); 
-				Ping=r.getPing();
-				System.out.println("Response: " + Ping + " cm"); 
+				Pingx=r.getPing(8);
+				System.out.println("Response: " + Pingx + " cm"); 
 				
 				r.sleep(1000); 
 			} 
-			Lola.setX(Ping);
+			Lola.setX(Pingx);
 		}
 		
 		if(whichPing==1){
 			for (int y=0; y < 5; y++) //for the Y Coordinate
 			{ 
 				r.refreshAnalogPins(); 
-				Ping=r.getAnalogPin(8).getValue(); 
-				System.out.println("Response: " + Ping + " cm"); 
+				Pingy=r.getPing(13); 
+				System.out.println("Response: " + Pingy + " cm"); 
 				
 				r.sleep(1000); 
 			} 
-			Lola.setY(Ping);
+			Lola.setY(Pingy);
 		}
-		return Ping;
+		if(whichPing==2){
+			for(int z=0;z<5;z++)
+			{
+				r.refreshAnalogPins();
+				Pingx=r.getPing(8);
+				Pingy=r.getPing(13);
+				System.out.println("Response: " + Pingx + ", " + Pingy + "cm");
+			}
+			Lola.setX(Pingx);
+			Lola.setY(Pingy);
+		}
+		
 	}
 			public int setPing(RXTXRobot r, int whichPing ) 
 			{ 
@@ -39,7 +51,7 @@ public class setPing {
 					for (int x=0; x < 5; x++) //for the X Coordinate
 					{
 						r.refreshAnalogPins(); 
-						Ping=r.getPing();
+						Ping=r.getPing(8);
 						System.out.println("Response: " + Ping + " cm"); 
 						
 						r.sleep(1000); 
@@ -49,7 +61,7 @@ public class setPing {
 					for (int y=0; y < 5; y++) //for the Y Coordinate
 					{ 
 						r.refreshAnalogPins(); 
-						Ping=r.getAnalogPin(8).getValue(); 
+						Ping=r.getPing(13); 
 						System.out.println("Response: " + Ping + " cm"); 
 						
 						r.sleep(1000); 
@@ -57,7 +69,23 @@ public class setPing {
 				}
 				return Ping;
 			}
-		} 
+			public int[] setPing(RXTXRobot r,LolaObjectMichael Lola){
+				int Pingx=-1;
+				int Pingy=-1;
+				for(int z=0;z<5;z++)
+				{
+					r.refreshAnalogPins();
+					Pingx=r.getPing(8);
+					Pingy=r.getPing(13);
+					System.out.println("Response: " + Pingx + ", " + Pingy + "cm");
+				}
+				Lola.setX(Pingx);
+				Lola.setY(Pingy);
+				  int[] returnPing={Pingx,Pingy};
+				  return returnPing;
+			}
+		}
+		
 	 	
 
 

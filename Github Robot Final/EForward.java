@@ -7,9 +7,10 @@ public class EForward {
 		
 		System.out.println("Motor run time:" + time);
 		//motor 1 is right motor 2 is left
-		r.setMotorRampUpTime(500);
-		r.runEncodedMotor(RXTXRobot.MOTOR1, -120,  time, RXTXRobot.MOTOR2, 160, time);
 		
+			r.runEncodedMotor(RXTXRobot.MOTOR1, -120,  90, RXTXRobot.MOTOR2, -160, 90);
+		//}
+		System.out.println("Returning now!");
 		
 
 		//100 ticks is

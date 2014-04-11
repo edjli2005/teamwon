@@ -1,11 +1,1 @@
 YOYO
-Getting Coordinates: [0,0]
-X Coordinate is now 1!
-Y Coordinate is now 55!
-Coordinates now [1,55!
-Salinity balls now 1!
-X Coordinate is now 1!
-Y Coordinate is now 55!
-Coordinates now [1,55!
-Getting Salinity Balls: 1
-Getting Coordinates: [1,55]

@@ -7,6 +7,8 @@ public class LolaObjectMichael {
 	int saltBallNumber;
 	int DistanceX;
 	int DistanceY;
+	int LolaX;
+	int LolaY;
 	//declarations for all attributes
 	public void LolaObjectMichael(){}
 	
@@ -97,5 +99,26 @@ public class LolaObjectMichael {
 		System.out.println("Total Y Distance Traveled: " + DistanceY);
 		return DistanceY;
 	}
+	public String setLolaX(int newLolaX){
+		LolaX=newLolaX;
+		String Confirm=("Lola's new width is: "+ LolaX);
+		System.out.println(Confirm);
+		return Confirm;
+	}
+	public int getLolaX(){
+		System.out.println("Lola's width is: "+ LolaX);
+		return LolaX;
+	}
+	public String setLolaY(int newLolaY){
+		LolaY=newLolaY;
+		String Confirm=("Lola's new Length is: "+LolaY);
+		System.out.println(Confirm);
+		return Confirm;
+	}
+	public int getLolaY(){
+		System.out.println("Lola's length is: "+LolaY);
+		return LolaY;
+	}
+	
 	
 }

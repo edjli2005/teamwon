@@ -29,9 +29,10 @@ public class robotWindow extends JFrame {
 		private JTextField Timefield2 =new JTextField(10); //instatiates textfield for time input
 		private JTextField Timefield3 =new JTextField(10); //instatiates textfield for time input
 		private JTextField Timefield4 =new JTextField(10); //instatiates textfield for time input
-		private JLabel Out =new JLabel("<html>Hello, my name is Lola.<br />What do you want Human?<html>");
+		private JLabel Out =new JLabel("<html>Hello, my name is Lola.<br />What do you want Human? <html>");
 		private JButton setPingX=new JButton("Get Ping X");
 		private JButton setPingY= new JButton("Get Ping Y");
+		private JButton setPingAll=new JButton("Get Both Pings");
 		private JButton EForward=new JButton("EForward");
 		private JButton EBackward=new JButton("EBackward");
 		private JButton ELeft=new JButton("ELeft");
@@ -90,6 +91,7 @@ public class robotWindow extends JFrame {
 			
 			final setPing PingX=new setPing();
 			final setPing PingY=new setPing();
+			final setPing setPing=new setPing();
 			final EForward FEncoded= new EForward();
 			final EBackward BEncoded=new EBackward();
 			final ELeft LEncoded=new ELeft();
@@ -143,15 +145,17 @@ public class robotWindow extends JFrame {
 			setPingX.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {int returnPing=PingX.setPing(r,0); Out.setText("PING X is "+returnPing);} });	
 			setPingY.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {int returnPing=PingY.setPing(r,1); Out.setText("PING Y is "+returnPing);} });	
+				public void actionPerformed(ActionEvent e) {int returnPing=PingY.setPing(r,1); Out.setText("PING Y is "+returnPing);} });
+			setPingAll.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {final int[] returnPing=setPing.setPing(r, Lola); Out.setText("Ping X is "+ returnPing[0]+" and Ping Y is "+returnPing[1]);}});
 			EForward.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); FEncoded.EForward(r,Time); Out.setText("EForward Done"); } });
 			EBackward.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); BEncoded.EBackward(r,Time); Out.setText("EBackward Done"); } });
 			ERight.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); REncoded.ERight(r,Time); Out.setText("ERight Done"); } });
+				public void actionPerformed(ActionEvent e) {if(Timefield1.getText().length()==0){String Confirm=REncoded.ERight(r); Out.setText(Confirm);}else{String Timestring = Timefield1.getText();final int Time=Integer.valueOf(Timestring);REncoded.ERight(r,Time);Out.setText("ERight Done");}}});
 			ELeft.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); LEncoded.ELeft(r,Time); Out.setText("ELeft Done"); } });		
+				public void actionPerformed(ActionEvent e) {if(Timefield1.getText().length()==0){String Confirm=LEncoded.ELeft(r); Out.setText(Confirm);} else{String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); LEncoded.ELeft(r,Time); Out.setText("ELeft Done"); }} });		
 			Retrieve.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); ballRetrieve.Retrieve(r, Time); Out.setText("Retrieve Done"); } });
 			coverOpen.addActionListener(new ActionListener() {
@@ -210,6 +214,7 @@ public class robotWindow extends JFrame {
 			//sensorPanel.add(Turbidity);
 			sensorPanel.add(setPingX);
 			sensorPanel.add(setPingY);
+			sensorPanel.add(setPingAll);
 			movementPanel.add(EForward);
 			movementPanel.add(EBackward);
 			movementPanel.add(ELeft);
