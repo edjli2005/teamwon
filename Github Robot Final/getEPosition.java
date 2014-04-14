@@ -9,7 +9,7 @@ public class getEPosition {
 		
 		//math for converting encoded motor output to our earlier coordinate system
 		
-		int[] Motors= {RMotor, LMotor};
+		int[] Motors= {LMotor,RMotor};
 		
 		return Motors;
 	
