@@ -13,7 +13,7 @@ public class turbidityTest {
 		
 		//RXTXRobot r = new RXTXRobot(); // Create RXTXRobot object 
 		Scanner s= new Scanner(System.in);
-		//r.setPort("COM4"); // Set the port to COM3 
+		//r.setPort("COM3"); // Set the port to COM3 
 		//r.setVerbose(true); // Turn on debugging messages 
 		//r.connect(); 
 		double diff=100;
@@ -21,8 +21,9 @@ public class turbidityTest {
 		double SECOND=-1;
 		double Turbidity=-1;
 		double a=0.03356972;
+		System.out.print("Test");
 		while(diff!=0){//diff>1||diff<-1
-			r.sleep(5000);
+			r.sleep(1000);
 			r.refreshAnalogPins();
 			double PIN3=r.getAnalogPin(3).getValue();
 			System.out.println(PIN3);	

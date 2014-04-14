@@ -8,8 +8,8 @@ public class EForward {
 		System.out.println("Motor run time:" + time);
 		//motor 1 is right motor 2 is left
 		
-			r.runEncodedMotor(RXTXRobot.MOTOR1, -80,  time, RXTXRobot.MOTOR2, -80, time);
-			
+			r.runEncodedMotor(RXTXRobot.MOTOR1, -122,  time, RXTXRobot.MOTOR2, -115, time);
+			// - 122, -115
 		//}
 		System.out.println("Returning now!");
 		
