@@ -8,8 +8,13 @@ public class getPosition {
 		
 		int[] Pings={-1,-1,-1,-1};//{xchanges,ychanges,xcoor,ycoor}
 		
-		  	
+		if(Lola.getMovementState()==("-YForward")||Lola.getMovementState()==("+YBackward"))  	{
+			Pings=newPing.setPingATBRIDGE(r, Lola);
+		}
+		else{
 		Pings=newPing.setPing(r,Lola);//Delay for getting precise ping now incorporated in overloaded getPing function
+		}
+		
 		System.out.println("X Coordinate is " + Pings[2] ); 
 		System.out.println("Y Coordinate is" + Pings[3] ); 
 		

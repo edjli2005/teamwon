@@ -84,6 +84,21 @@ public class setPing {
 				  int[] returnPing={-1,-1,Pingx,Pingy};//{coordinate x,y,ping x,y}
 				  return returnPing;
 			}
+			public int[] setPingATBRIDGE(RXTXRobot r,LolaObjectMichael Lola){
+				int Pingx=-1;
+				int Pingy=-1;
+				for(int z=0;z<5;z++)
+				{
+					//r.refreshAnalogPins();//detects ping
+					Pingx=r.getPing(8);
+					Pingy=0;
+					System.out.println("Response: " + Pingx + ", " + Pingy + "cm");
+				}
+				Lola.setX(Pingx);
+				Lola.setY(Pingy);//sets ping in lola object
+				  int[] returnPing={-1,-1,Pingx,Pingy};//{coordinate x,y,ping x,y}
+				  return returnPing;
+			}
 			public int[] setPing(RXTXRobot r){
 				int Pingx=-1;
 				int Pingy=-1;

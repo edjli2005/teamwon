@@ -1,3 +1,5 @@
+import rxtxrobot.RXTXRobot;
+
 
 public class LolaObjectMichael {
 	int X;
@@ -15,7 +17,7 @@ public class LolaObjectMichael {
 	int LolaY;
 	String movementState;
 	int[] EPLIST;
-	
+	Movement Movement=new Movement();
 	//declarations for all attributes
 	public void LolaObjectMichael(){}
 	
@@ -200,6 +202,76 @@ public class LolaObjectMichael {
 	public String setMovementState(String newMovement){
 		movementState=newMovement;
 		String Confirm="New Movement State is "+movementState;
+		System.out.println(Confirm);
+		return Confirm;
+	}
+	public String changeMovementState(RXTXRobot r,String newMovement,LolaObjectMichael Lola){
+		String Confirm="ERROR in changeMovementState";//checks movement state, and uses that to change the orientation of Lola
+		
+		if(movementState=="+XForward"||movementState=="-XBackward"){
+			
+			if(newMovement=="-XForward"||newMovement=="+XBackward"){
+				Movement.Uturn(r);
+				Confirm=("Uturned to "+newMovement);
+			}
+			if(newMovement=="+YForward"||newMovement=="-YBackward"){
+				Movement.ERight(r, Lola);
+				Confirm=("Right turned to "+newMovement);
+			}
+			if(newMovement=="-YForward"||newMovement=="+YBackward"){
+				Movement.ELeft(r, Lola);
+				Confirm=("Left turned to "+newMovement);
+			}
+		}
+		
+		
+		if(movementState=="-XForward"||movementState=="+XBackward"){
+			if(newMovement=="+XForward"||newMovement=="-XBackward"){
+				Movement.Uturn(r);
+				Confirm=("Uturned to "+newMovement);
+			}
+			if(newMovement=="+YForward"||newMovement=="-YBackward"){
+				Movement.ELeft(r, Lola);
+				Confirm=("Left turned to "+newMovement);
+			}
+			if(newMovement=="-YForward"||newMovement=="+YBackward"){
+				Movement.ERight(r, Lola);
+				Confirm=("Right turned to "+newMovement);
+			}
+		}
+		
+		if(movementState=="+YForward"||movementState=="-YBackward"){
+			
+			if(newMovement=="-XForward"||newMovement=="+XBackward"){
+				Movement.ERight(r,Lola);
+				Confirm=("Right turned to "+newMovement);
+			}
+			if(newMovement=="+XForward"||newMovement=="-XBackward"){
+				Movement.ELeft(r, Lola);
+				Confirm=("Left turned to "+newMovement);
+			}
+			if(newMovement=="-YForward"||newMovement=="+YBackward"){
+				Movement.Uturn(r);
+				Confirm=("Uturned to "+newMovement);
+			}
+		}
+		
+		if(movementState=="-YForward"||movementState=="+YBackward"){
+			
+			if(newMovement=="-XForward"||newMovement=="+XBackward"){
+				Movement.ELeft(r,Lola);
+				Confirm=("Left turned to "+newMovement);
+			}
+			if(newMovement=="+YForward"||newMovement=="-YBackward"){
+				Movement.Uturn(r);
+				Confirm=("Uturned to "+newMovement);
+			}
+			if(newMovement=="+XForward"||newMovement=="-XBackward"){
+				Movement.ERight(r, Lola);
+				Confirm=("Right turned to "+newMovement);
+			}
+		}
+		movementState=newMovement;
 		System.out.println(Confirm);
 		return Confirm;
 	}

@@ -12,6 +12,8 @@ public class Movement {
 	EBackward moveEBackward= new EBackward();
 	ERight turnERight= new ERight();
 	ELeft turnELeft = new ELeft();
+	Uturn U=new Uturn();
+	Retrieve Retrieve=new Retrieve();
 	createExpectedPosition EP=new createExpectedPosition();
 	public Movement(){}
 	//Movement object created for easy coding of movement.
@@ -78,6 +80,12 @@ public class Movement {
 	}
 	public void Down(RXTXRobot r, int Time){
 		goDown.Down(r, Time);
+	}
+	public void Retrieve(RXTXRobot r, int Times){
+		Retrieve.Retrieve(r, Times);
+	}
+	public void Uturn(RXTXRobot r){
+		U.Uturn(r);
 	}
 	public void setDistanceX(RXTXRobot r, LolaObjectMichael Lola){
 		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
