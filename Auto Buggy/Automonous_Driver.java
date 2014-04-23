@@ -4,7 +4,7 @@ import rxtxrobot.RXTXRobot;
 public class Automonous_Driver {
 	Movement Movement=new Movement();
 	Ping Ping = new Ping();
-	
+	bridgeFind Find=new bridgeFind();
 	
 	Automonous_Driver(){}
 	
@@ -22,7 +22,7 @@ public class Automonous_Driver {
 		Movement.Down(r, 750);
 		r.sleep(2000);
 		Movement.Up(r,750);
-		Movement.EBackward(r, 50, Lola);
+		Movement.EBackward(r, 50);
 		Movement.Down(r,750);
 		Lola.changeMovementState(r, "+XForward", Lola);//changes Lola's orientation autonomously, hopefully
 		Movement.Down(r, 1000);
@@ -33,7 +33,7 @@ public class Automonous_Driver {
 		Movement.Retrieve(r, 2);
 		Lola.changeMovementState(r, "-XForward", Lola);
 		Ping.checkTopForward(r);//Runs until it hits the third dispenser
-		Movement.EBackward(r, 50, Lola);
+		Movement.EBackward(r, 50);
 		Movement.Retrieve(r, 2);
 		
 		Lola.changeMovementState(r, "+YForward", Lola);//turns left
@@ -44,7 +44,7 @@ public class Automonous_Driver {
 		
 		
 		
-		Movement.bridgeFind(r,Lola);
+		Find.bridgeFind(r,Lola);
 	
 		
 		Lola.changeMovementState(r, "-YForward", Lola);//Turn around so can go up backward

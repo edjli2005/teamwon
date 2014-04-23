@@ -16,7 +16,7 @@ public class Movement {
 	coverClose Close=new coverClose();
 	coverOpen Open=new coverOpen();
 	bridgeRun Bridge=new bridgeRun();
-	bridgeFind Find=new bridgeFind();
+//	bridgeFind Find=new bridgeFind();
 	Retrieve Retrieve=new Retrieve();
 	createExpectedPosition EP=new createExpectedPosition();
 	Ping Ping=new Ping();
@@ -45,45 +45,37 @@ public class Movement {
 	public void Right(RXTXRobot r,int Time){
 		turnRight.Right(r, Time);
 	}
-	public void EForward(RXTXRobot r, int Ticks,LolaObjectMichael Lola) {
+	public void EForward(RXTXRobot r, int Ticks) {
 			moveEForward.EForward(r, Ticks);
-			Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-			Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+			
 	}
-	public void EForward(RXTXRobot r, int TicksL, int TicksR,LolaObjectMichael Lola){
+	public void EForward(RXTXRobot r, int TicksL, int TicksR){
 		moveEForward.EForward(r, TicksL, TicksR);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void EBackward(RXTXRobot r,int Ticks,LolaObjectMichael Lola){
+	public void EBackward(RXTXRobot r,int Ticks){
 		moveEBackward.EBackward(r, Ticks);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 }
-	public void EBackward(RXTXRobot r, int TicksL, int TicksR,LolaObjectMichael Lola){
+	public void EBackward(RXTXRobot r, int TicksL, int TicksR){
 		moveEBackward.EBackward(r, TicksL, TicksR);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 }
-	public void ELeft(RXTXRobot r,int Ticks,LolaObjectMichael Lola){
+	public void ELeft(RXTXRobot r,int Ticks){
 		turnELeft.ELeft(r, Ticks);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void ELeft(RXTXRobot r,LolaObjectMichael Lola){
+	public void ELeft(RXTXRobot r){
 		turnELeft.ELeft(r);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void ERight(RXTXRobot r,int Ticks,LolaObjectMichael Lola){
+	public void ERight(RXTXRobot r,int Ticks){
 		turnERight.ERight(r, Ticks);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void ERight(RXTXRobot r,LolaObjectMichael Lola){
+	public void ERight(RXTXRobot r){
 		turnERight.ERight(r);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
 	public void Up(RXTXRobot r, int Time){
 		goUp.Up(r, Time);
@@ -105,34 +97,11 @@ public class Movement {
 	}
 public void bridgeRun(RXTXRobot r) {
 		
-		r.refreshAnalogPins();
-		int R=122;
-		int L=100;
-		int[] Speed={L,R};
-		int[] PingValues;
-		for(int i=300;i>=0;i--){
-			
-			r.runMotor(RXTXRobot.MOTOR1, Speed[0], RXTXRobot.MOTOR2, Speed[1],0 );
-			PingValues=Ping.testDoublePing(r);
-			
-			if(PingValues[0]>115){
-				PingValues[0]=PingValues[0]-115;
-				Speed[1]=(int) (Speed[1]-(PingValues[0]*.5));
-			}
-			if(PingValues[0]<105){
-				PingValues[0]=105-PingValues[0];
-				Speed[1]=(int) (Speed[1]+(PingValues[0]*.5));
-			}
-			
-		}
-	
-		System.out.println("Bridge HO!");
-		
-
+		Bridge.bridgeRun(r);
 	}
-	public void bridgeFind(RXTXRobot r,LolaObjectMichael Lola){
-		Find.bridgeFind(r,Lola);
-	}
+//	public void bridgeFind(RXTXRobot r,LolaObjectMichael Lola){
+//		Find.bridgeFind(r,Lola);
+//	}
 	public void setDistanceX(RXTXRobot r, LolaObjectMichael Lola){
 		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
 	}

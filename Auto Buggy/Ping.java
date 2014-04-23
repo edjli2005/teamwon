@@ -1,7 +1,7 @@
 import rxtxrobot.RXTXRobot;
 
 public class Ping {
-	getPosition newgetPosition = new getPosition();
+	//getPosition newgetPosition = new getPosition();
 	//correctPosition newcorrectPosition = new correctPosition();
 	setPing newsetPing= new setPing();
 	testDoublePing newtestDoublePing = new testDoublePing();
@@ -14,12 +14,12 @@ public class Ping {
 		//set ping, including all permutations
 		//test double ping sensors
 		////conversions between centimeters and ticks, including all permutations
-	public void getPosition(RXTXRobot r,  int[] expectedPosition,LolaObjectMichael Lola){
-		newgetPosition.getPosition(r,expectedPosition,Lola);
-	}
-	public void getPosition(RXTXRobot r){
-		newgetPosition.getPosition(r);
-	}
+//	public void getPosition(RXTXRobot r,  int[] expectedPosition,LolaObjectMichael Lola){
+//		newgetPosition.getPosition(r,expectedPosition,Lola);
+//	}
+//	public void getPosition(RXTXRobot r){
+//		newgetPosition.getPosition(r);
+//	}
 	/*public void correctPosition(RXTXRobot r, int[] Changes,LolaObjectMichael Lola){
 		newcorrectPosition.correctPosition(r, Changes, Lola);
 	}*/

@@ -7,7 +7,9 @@ public class bridgeFind {
 	public bridgeFind(){};
 	public void bridgeFind(RXTXRobot r,LolaObjectMichael Lola){
 		int[] Pings=new int[2];
+		
 		Ping.testPosition(r,Movement.createExpectedPosition(r, Lola),Lola);//Sets up facing -X ready to scan for bridge first pos
+		
 		Pings=Ping.testDoublePing(r);
 		if(Pings[0]<120){
 			Lola.setEPLIST(4,0);
