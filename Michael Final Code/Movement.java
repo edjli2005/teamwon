@@ -16,8 +16,9 @@ public class Movement {
 	coverClose Close=new coverClose();
 	coverOpen Open=new coverOpen();
 	bridgeRun Bridge=new bridgeRun();
-//	bridgeFind Find=new bridgeFind();
+	ballArm Arm=new ballArm();
 	Retrieve Retrieve=new Retrieve();
+	
 	createExpectedPosition EP=new createExpectedPosition();
 	Ping Ping=new Ping();
 	
@@ -185,5 +186,16 @@ public void bridgeRun(RXTXRobot r) {
 		}
 		public void correctPosition(RXTXRobot r, int[] Changes,LolaObjectMichael Lola){
 			newcorrectPosition.correctPosition(r, Changes, Lola);
+		}
+		public void ballArm(RXTXRobot r, final int Angle) {
+			Arm.ballArm(r,Angle);
+		}
+		public void Dance(RXTXRobot r){
+			int MAXSPEED=0;
+			while (MAXSPEED<245){
+				r.runMotor(r.MOTOR1, 0, r.MOTOR2, MAXSPEED,0 );
+				r.sleep(50);
+				MAXSPEED=MAXSPEED+10;
+			}
 		}
 }

@@ -58,14 +58,33 @@ public class Automonous_Driver {
 		Movement.coverOpen(r);
 		
 		
-		
+		//ALL BALL STUFF
 		/*
+		Movement.coverClose(r);
 		Find.bridgeFind(r,Lola);//finds to re-cross bridge	
 		Lola.changeMovementState(r, "+YForward", Lola);//Turn around so can go up backward
 		
 		Movement.bridgeRun(r);//duh
 		
-		Lola.changeMovementState(r,"+XForward",Lola);*/
+		Lola.changeMovementState(r,"+XForward",Lola);
+		Ping.testPosition(r, Movement.createExpectedPosition( r, Lola) ,Lola);//go to 1st ball position
+		Movement.ballArm(r, 160);//unsheathe arm
+		Movement.EForward(r, 50);
+		Movement.Up(r,1500);//knock ball off
+		Movement.ballArm(r, 0);//sheathe arm
+		Movement.Down(r,2000);
+		
+		Ping.testPosition(r, Movement.createExpectedPosition( r, Lola) ,Lola);//go to 2nd ball position
+		Lola.changeMovementState(r, "-XForward", Lola);
+		Movement.ballArm(r, 160);//unsheathe arm
+		Movement.EForward(r, 50);
+		Movement.Up(r,1500);//knock ball off
+		Movement.ballArm(r, 0);//sheathe arm
+		Movement.Down(r,2000);
+		Movement.EBackward(r, 75);
+		//Movement.Dance(r);
+		*/
+		
 		
 		return CONFIRM;
 	}
