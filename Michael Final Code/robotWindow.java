@@ -172,7 +172,7 @@ public class robotWindow extends JFrame {
 			getPosition.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {String posX = Timefield1.getText(); final int inputX=Integer.valueOf(posX);String posY = Timefield1.getText(); final int inputY=Integer.valueOf(posY);int[] expectedPosition={inputX,inputY,0,0};expectedPosition=positionGetter.getPosition(r,expectedPosition, Lola); Out.setText("Position Got! Coordinates [ "+ expectedPosition[2]+", "+expectedPosition[3]+"]!");} });
 			Uturn.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {String Timestring = Timefield1.getText(); final int Time=Integer.valueOf(Timestring); U.Uturn(r, Time); Out.setText("OTHER WAY OTHER WAY!!");} });	
+				public void actionPerformed(ActionEvent e) { U.Uturn(r); Out.setText("OTHER WAY OTHER WAY!!");} });	
 			testBridge.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {findBridge.testBridge(r); Out.setText("Found it.");} });
 			Bump.addActionListener(new ActionListener() {
@@ -205,7 +205,7 @@ public class robotWindow extends JFrame {
 				 public void actionPerformed(ActionEvent e){int [] Position=EPosition.getEPosition(r);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
 			
 			testDoublePing.addActionListener(new ActionListener(){
-				 public void actionPerformed(ActionEvent e){int [] Position=DoublePing.testDoublePing(r, Lola);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
+				 public void actionPerformed(ActionEvent e){int [] Position=DoublePing.testDoublePing(r);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
 			Automonous_Driver.addActionListener(new ActionListener(){
 				 public void actionPerformed(ActionEvent e){String Position=DRIVE.Automonous_Driver(r, Lola);Out.setText(Position); }});
 			
@@ -213,7 +213,7 @@ public class robotWindow extends JFrame {
 			movementPanel.add(Down);
 			//movementPanel.add(Left);
 			//movementPanel.add(Right);
-			//movementPanel.add(Forward);
+			movementPanel.add(Forward);
 			//movementPanel.add(Backward);
 			sensorPanel.add(Water);
 			//sensorPanel.add(Salinity);

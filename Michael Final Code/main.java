@@ -16,28 +16,7 @@ public class main {
 			//10 ticks is 1.5 in
 			//1 tick is .15 in
 			
-			/*PrintStream Carrol = null;//new PrintStream('End of all time");
-			try {
-				Carrol = new PrintStream(new File("output.txt"));
-				//System.out.println("Ryan Hardy is meaningless to Carrol??!!");
-
-			System.setOut(Carrol);
-			//System.out.println("Why not Poe?");
-			//Carrol.println("Ryan Hardy. The one cop who refuses to carry a tazer. Despite the hordes of crazies with knives.");
-			//
-			try{
-				File file= new File("output.txt");
-				FileOutputStream FOS = new FileOutputStream(file, true);
-				PrintStream HA = new PrintStream(FOS);
-				System.setOut(HA);
-				FOS.toString();
-			}
-			catch (FileNotFoundException e) {
-				e.printStackTrace();
-				System.out.println("OMFG CLAIRE'S ALIVE!!!!");
-			}
-			System.out.println("YOYO");
-			*/
+			
 			robotWindow window= new robotWindow(r);
 			window.setSize(1200,350);
 			window.setPreferredSize(new Dimension(1250,600));

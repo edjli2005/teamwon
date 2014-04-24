@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import rxtxrobot.*; 
 //Contained within Ping object
 public class setPing {
@@ -23,6 +25,7 @@ public class setPing {
 			for (int y=0; y < 5; y++) //for the Y Coordinate
 			{ 
 				r.refreshAnalogPins(); 
+				r.refreshDigitalPins();
 				Pingy=r.getPing(13); 
 				System.out.println("Response: " + Pingy + " cm"); 
 				
@@ -34,6 +37,7 @@ public class setPing {
 			for(int z=0;z<5;z++)
 			{
 				r.refreshAnalogPins();
+				r.refreshDigitalPins();
 				Pingx=r.getPing(8);
 				Pingy=r.getPing(13);
 				System.out.println("Response: " + Pingx + ", " + Pingy + "cm");
@@ -51,6 +55,7 @@ public class setPing {
 					for (int x=0; x < 5; x++) //for the X Coordinate
 					{
 						r.refreshAnalogPins(); 
+						r.refreshDigitalPins();
 						Ping=r.getPing(8);
 						System.out.println("Response: " + Ping + " cm"); 
 						
@@ -61,6 +66,7 @@ public class setPing {
 					for (int y=0; y < 5; y++) //for the Y Coordinate
 					{ 
 						r.refreshAnalogPins(); 
+						r.refreshDigitalPins();
 						Ping=r.getPing(13); 
 						System.out.println("Response: " + Ping + " cm"); 
 						
@@ -72,11 +78,34 @@ public class setPing {
 			public int[] setPing(RXTXRobot r,LolaObjectMichael Lola){
 				int Pingx=-1;
 				int Pingy=-1;
+				int[] medianX=new int[5];
+				int[] medianY=new int[5];
 				for(int z=0;z<5;z++)
 				{
 					r.refreshAnalogPins();//detects ping
+					r.refreshDigitalPins();
 					Pingx=r.getPing(8);
 					Pingy=r.getPing(13);
+					if(Pingx>0||Pingx<250){
+					medianX[z]=Pingx;
+					}
+					if(Pingy>0||Pingy<250){
+					medianY[z]=Pingy;
+					}
+					Arrays.sort(medianX);
+					Arrays.sort(medianY);
+					if(medianX.length<=3){
+						Pingx=medianX[1];
+					}
+					else{
+						Pingx=medianX[2];
+					}
+					if(medianY.length<=3){
+						Pingy=medianY[1];
+					}
+					else{
+						Pingy=medianY[2];
+					}
 					System.out.println("Response: " + Pingx + ", " + Pingy + "cm");
 				}
 				Lola.setX(Pingx);
@@ -89,7 +118,8 @@ public class setPing {
 				int Pingy=-1;
 				for(int z=0;z<5;z++)
 				{
-					//r.refreshAnalogPins();//detects ping
+					r.refreshAnalogPins();//detects ping
+					r.refreshDigitalPins();
 					Pingx=r.getPing(8);
 					Pingy=0;
 					System.out.println("Response: " + Pingx + ", " + Pingy + "cm");

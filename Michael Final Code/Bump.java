@@ -8,14 +8,9 @@ public class Bump {
 		boolean BUMP=false;
 		
 			r.refreshAnalogPins();
-			bumpNum=r.getAnalogPin(0).getValue();
-			if(bumpNum<900){
-				BUMP=true;
-				return true;
-			}
-				
-		
-		
-		return false;
+			bumpNum=r.getAnalogPin(1).getValue();
+			System.out.println(r.getAnalogPin(1).getValue());
+			
+			return true;
 	}
 }

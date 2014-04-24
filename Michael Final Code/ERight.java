@@ -12,7 +12,7 @@ public class ERight {
 	public String ERight(RXTXRobot r){// Automatically turns 90 degrees when passed no time, aka the input box is empty
 		String Confirm=("Motor turn 90 degrees right!");
 		System.out.println(Confirm);
-		r.runEncodedMotor(RXTXRobot.MOTOR1, 87, 65, RXTXRobot.MOTOR2, -87, 65);
+		r.runEncodedMotor(RXTXRobot.MOTOR1, 90, 62, RXTXRobot.MOTOR2, -90, 62);
 		return Confirm;//returns confirmation
 	}
 

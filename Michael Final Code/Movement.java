@@ -13,9 +13,18 @@ public class Movement {
 	ERight turnERight= new ERight();
 	ELeft turnELeft = new ELeft();
 	Uturn U=new Uturn();
+	coverClose Close=new coverClose();
+	coverOpen Open=new coverOpen();
+	bridgeRun Bridge=new bridgeRun();
+//	bridgeFind Find=new bridgeFind();
 	Retrieve Retrieve=new Retrieve();
 	createExpectedPosition EP=new createExpectedPosition();
+	Ping Ping=new Ping();
+	
+	
+	correctPosition newcorrectPosition = new correctPosition();
 	public Movement(){}
+	
 	//Movement object created for easy coding of movement.
 	//Contains:
 		//all non-encoded motor movement
@@ -26,6 +35,7 @@ public class Movement {
 	public void Forward(RXTXRobot r,int Time){
 		moveForward.Forward(r, Time);
 	}
+	
 	public void Backward(RXTXRobot r,int Time){
 		moveBackward.Backward(r, Time);
 	}
@@ -35,45 +45,37 @@ public class Movement {
 	public void Right(RXTXRobot r,int Time){
 		turnRight.Right(r, Time);
 	}
-	public void EForward(RXTXRobot r, int Ticks,LolaObjectMichael Lola) {
+	public void EForward(RXTXRobot r, int Ticks) {
 			moveEForward.EForward(r, Ticks);
-			Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-			Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+			
 	}
-	public void EForward(RXTXRobot r, int TicksL, int TicksR,LolaObjectMichael Lola){
+	public void EForward(RXTXRobot r, int TicksL, int TicksR){
 		moveEForward.EForward(r, TicksL, TicksR);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void EBackward(RXTXRobot r,int Ticks,LolaObjectMichael Lola){
+	public void EBackward(RXTXRobot r,int Ticks){
 		moveEBackward.EBackward(r, Ticks);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 }
-	public void EBackward(RXTXRobot r, int TicksL, int TicksR,LolaObjectMichael Lola){
+	public void EBackward(RXTXRobot r, int TicksL, int TicksR){
 		moveEBackward.EBackward(r, TicksL, TicksR);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 }
-	public void ELeft(RXTXRobot r,int Ticks,LolaObjectMichael Lola){
+	public void ELeft(RXTXRobot r,int Ticks){
 		turnELeft.ELeft(r, Ticks);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void ELeft(RXTXRobot r,LolaObjectMichael Lola){
+	public void ELeft(RXTXRobot r){
 		turnELeft.ELeft(r);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void ERight(RXTXRobot r,int Ticks,LolaObjectMichael Lola){
+	public void ERight(RXTXRobot r,int Ticks){
 		turnERight.ERight(r, Ticks);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
-	public void ERight(RXTXRobot r,LolaObjectMichael Lola){
+	public void ERight(RXTXRobot r){
 		turnERight.ERight(r);
-		Lola.setstartEncoderValue( (Lola.getendEncoderValueLeft()) , (Lola.getendEncoderValueRight()) );
-		Lola.setendEncoderValue(r.getEncodedMotorPosition(RXTXRobot.MOTOR1), r.getEncodedMotorPosition(RXTXRobot.MOTOR2));
+		
 	}
 	public void Up(RXTXRobot r, int Time){
 		goUp.Up(r, Time);
@@ -87,6 +89,19 @@ public class Movement {
 	public void Uturn(RXTXRobot r){
 		U.Uturn(r);
 	}
+	public void coverOpen(RXTXRobot r){
+		Open.coverOpen(r);
+	}
+	public void coverClose(RXTXRobot r){
+		Close.coverClose(r);
+	}
+public void bridgeRun(RXTXRobot r) {
+		
+		Bridge.bridgeRun(r);
+	}
+//	public void bridgeFind(RXTXRobot r,LolaObjectMichael Lola){
+//		Find.bridgeFind(r,Lola);
+//	}
 	public void setDistanceX(RXTXRobot r, LolaObjectMichael Lola){
 		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
 	}
@@ -167,5 +182,8 @@ public class Movement {
 		public int[] createExpectedPosition(RXTXRobot r, LolaObjectMichael Lola){
 			int[] expectedPosition = EP.createExpectedPosition(r, Lola);
 			return expectedPosition;
+		}
+		public void correctPosition(RXTXRobot r, int[] Changes,LolaObjectMichael Lola){
+			newcorrectPosition.correctPosition(r, Changes, Lola);
 		}
 }

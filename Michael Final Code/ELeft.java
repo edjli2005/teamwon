@@ -12,7 +12,7 @@ public class ELeft {
 	public String ELeft(RXTXRobot r){// Automatically turns 90 degrees when passed no time, aka the input box is empty
 		String Confirm=("Motor turn 90 degrees left!");
 		System.out.println(Confirm);
-		r.runEncodedMotor(RXTXRobot.MOTOR1, -100, 65, RXTXRobot.MOTOR2, 100, 65);
+		r.runEncodedMotor(RXTXRobot.MOTOR1, -90, 63, RXTXRobot.MOTOR2, 90, 63);
 		return Confirm;//returns confirmation
 	}
 

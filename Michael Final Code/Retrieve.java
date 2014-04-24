@@ -5,12 +5,13 @@ public class Retrieve {
 	public void Retrieve(RXTXRobot r, final int Times) {
 		
 		for(int i=0;i<Times;i++){
-			while(/*Bump Sensor pin*/<1000){
-			r.runMotor(RXTXRobot.MOTOR1, -130, RXTXRobot.MOTOR2, 160,0 );//starts moving
+			while(r.getAnalogPin(2).getValue()< 900){//Top bump sensor
+			r.runMotor(RXTXRobot.MOTOR1, -130, RXTXRobot.MOTOR2, 160,0 );//starts moving to dispenser
 			r.refreshAnalogPins();
 			}
-			r.runMotor(RXTXRobot.MOTOR1, -130, RXTXRobot.MOTOR2, 160,500 );
-			r.runMotor(RXTXRobot.MOTOR1, 130, RXTXRobot.MOTOR2, -160,1000 );
+			
+			r.runMotor(RXTXRobot.MOTOR1, -200, RXTXRobot.MOTOR2, 250,500 );//extra in case it jams 
+			r.runMotor(RXTXRobot.MOTOR1, 130, RXTXRobot.MOTOR2, -160,1000 );//reverses back
 	}
 		
 		System.out.println("Retrieve Done");

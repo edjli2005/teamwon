@@ -18,7 +18,7 @@ public class Uturn {
 		
 	}
 	public void Uturn(RXTXRobot r) {
-		r.runEncodedMotor(RXTXRobot.MOTOR1, 105, 250, RXTXRobot.MOTOR2, 150, 180);
+		r.runEncodedMotor(RXTXRobot.MOTOR1, 100, 120, RXTXRobot.MOTOR2, -100, 120);
 		
 	}
 

@@ -215,11 +215,11 @@ public class LolaObjectMichael {
 				Confirm=("Uturned to "+newMovement);
 			}
 			if(newMovement=="+YForward"||newMovement=="-YBackward"){
-				Movement.ERight(r, Lola);
+				Movement.ERight(r);
 				Confirm=("Right turned to "+newMovement);
 			}
 			if(newMovement=="-YForward"||newMovement=="+YBackward"){
-				Movement.ELeft(r, Lola);
+				Movement.ELeft(r);
 				Confirm=("Left turned to "+newMovement);
 			}
 		}
@@ -231,11 +231,11 @@ public class LolaObjectMichael {
 				Confirm=("Uturned to "+newMovement);
 			}
 			if(newMovement=="+YForward"||newMovement=="-YBackward"){
-				Movement.ELeft(r, Lola);
+				Movement.ELeft(r);
 				Confirm=("Left turned to "+newMovement);
 			}
 			if(newMovement=="-YForward"||newMovement=="+YBackward"){
-				Movement.ERight(r, Lola);
+				Movement.ERight(r);
 				Confirm=("Right turned to "+newMovement);
 			}
 		}
@@ -243,11 +243,11 @@ public class LolaObjectMichael {
 		if(movementState=="+YForward"||movementState=="-YBackward"){
 			
 			if(newMovement=="-XForward"||newMovement=="+XBackward"){
-				Movement.ERight(r,Lola);
+				Movement.ERight(r);
 				Confirm=("Right turned to "+newMovement);
 			}
 			if(newMovement=="+XForward"||newMovement=="-XBackward"){
-				Movement.ELeft(r, Lola);
+				Movement.ELeft(r);
 				Confirm=("Left turned to "+newMovement);
 			}
 			if(newMovement=="-YForward"||newMovement=="+YBackward"){
@@ -259,7 +259,7 @@ public class LolaObjectMichael {
 		if(movementState=="-YForward"||movementState=="+YBackward"){
 			
 			if(newMovement=="-XForward"||newMovement=="+XBackward"){
-				Movement.ELeft(r,Lola);
+				Movement.ELeft(r);
 				Confirm=("Left turned to "+newMovement);
 			}
 			if(newMovement=="+YForward"||newMovement=="-YBackward"){
@@ -267,7 +267,7 @@ public class LolaObjectMichael {
 				Confirm=("Uturned to "+newMovement);
 			}
 			if(newMovement=="+XForward"||newMovement=="-XBackward"){
-				Movement.ERight(r, Lola);
+				Movement.ERight(r);
 				Confirm=("Right turned to "+newMovement);
 			}
 		}
@@ -307,7 +307,70 @@ public class LolaObjectMichael {
 		String Confirm = "It is done.";
 		System.out.println(Confirm);
 		return Confirm;
-	
+	}
+	public int CentToTickLF(int Cent){
+		Cent=Cent*(93/33);
+		return Cent;
+	}
+	public int CentToTickLB(int Cent){
+		Cent=Cent*(97/33);
+		return Cent;
+	}
+	public int CentToTickRF(int Cent){
+		Cent=Cent*(90/33);
+		return Cent;
+	}
+	public int CentToTickRB(int Cent){
+		Cent=Cent*(90/33);
+		return Cent;
+	}
+	public double CentToTickLF(double Cent){
+		Cent=Cent*(93/33);
+		return Cent;
+	}
+	public double CentToTickLB(double Cent){
+		Cent=Cent*(97/33);
+		return Cent;
+	}
+	public double CentToTickRF(double Cent){
+		Cent=Cent*(90/33);
+		return Cent;
+	}
+	public double CentToTickRB(double Cent){
+		Cent=Cent*(90/33);
+		return Cent;
+	}
+	public int TickToCentLF(int Tick){
+		Tick=Tick*(33/93);
+		return Tick;
+	}
+	public int TickToCentLB(int Tick){
+		Tick=Tick*(33/97);
+		return Tick;
+	}
+	public int TickToCentRF(int Tick){
+		Tick=Tick*(33/90);
+		return Tick;
+	}
+	public int TickToCentRB(int Tick){
+		Tick=Tick*(33/90);
+		return Tick;
+	}
+	public double TickToCentLF(double Tick){
+		Tick=Tick*(33/93);
+		return Tick;
+	}
+	public double TickToCentLB(double Tick){
+		Tick=Tick*(33/97);
+		return Tick;
+	}
+	public double TickToCentRF(double Tick){
+		Tick=Tick*(33/90);
+		return Tick;
+	}
+	public double TickToCentRB(double Tick){
+		Tick=Tick*(33/90);
+		return Tick;
 	}
 	
 }
