@@ -24,7 +24,7 @@ public class robotWindow extends JFrame {
 		private JButton Turbidity =new JButton("TEST TURB.");
 		private JButton Forward =new JButton("FORWARD");
 		private JButton Backward =new JButton("BACKWARD");
-		
+		Ping Ping = new Ping();
 		private JTextField Timefield1 =new JTextField(10); //instatiates textfield for time input
 		private JTextField Timefield2 =new JTextField(10); //instatiates textfield for time input
 		private JTextField Timefield3 =new JTextField(10); //instatiates textfield for time input
@@ -62,6 +62,7 @@ public class robotWindow extends JFrame {
 		
 		private JButton testDoublePing= new JButton("Test Pings");	
 		private JButton Automonous_Driver=new JButton("Auto Drive");
+		
 		public robotWindow(final RXTXRobot r){
 		
 			setLayout(new GridLayout(1,3));
@@ -205,9 +206,10 @@ public class robotWindow extends JFrame {
 				 public void actionPerformed(ActionEvent e){int [] Position=EPosition.getEPosition(r);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
 			
 			testDoublePing.addActionListener(new ActionListener(){
-				 public void actionPerformed(ActionEvent e){int [] Position=DoublePing.testDoublePing(r);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
+				 public void actionPerformed(ActionEvent e){int [] Position=Ping.testDoublePing(r);Out.setText("Coordinates are ["+ Position[0]+","+ Position[1]+"]"); }});
 			Automonous_Driver.addActionListener(new ActionListener(){
-				 public void actionPerformed(ActionEvent e){String Position=DRIVE.Automonous_Driver(r, Lola);Out.setText(Position); }});
+				 public void actionPerformed(ActionEvent e){String First = Timefield1.getText();String Second = Timefield2.getText();String Third = Timefield3.getText();String Fourth = Timefield4.getText();
+					final int Points1=Integer.valueOf(First);final int Points2=Integer.valueOf(Second);final int Points3=Integer.valueOf(Third);final int Points4=Integer.valueOf(Fourth);String Position=DRIVE.Automonous_Driver(r, Lola,Points1,Points2,Points3,Points4);Out.setText(Position); }});
 			
 			movementPanel.add(Up);
 			movementPanel.add(Down);
@@ -250,8 +252,8 @@ public class robotWindow extends JFrame {
 			sensorPanel.add(Automonous_Driver);
 			sensorPanel.add(Timefield1);
 			sensorPanel.add(Timefield2);
-			//sensorPanel.add(Timefield3);
-			//sensorPanel.add(Timefield4);
+			sensorPanel.add(Timefield3);
+			sensorPanel.add(Timefield4);
 
 			outputPanel.add(Out, BorderLayout.SOUTH);
 		

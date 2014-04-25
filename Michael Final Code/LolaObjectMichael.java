@@ -308,69 +308,75 @@ public class LolaObjectMichael {
 		System.out.println(Confirm);
 		return Confirm;
 	}
-	public int CentToTickLF(int Cent){
-		Cent=Cent*(93/33);
-		return Cent;
-	}
-	public int CentToTickLB(int Cent){
-		Cent=Cent*(97/33);
-		return Cent;
-	}
-	public int CentToTickRF(int Cent){
-		Cent=Cent*(90/33);
-		return Cent;
-	}
-	public int CentToTickRB(int Cent){
-		Cent=Cent*(90/33);
-		return Cent;
-	}
-	public double CentToTickLF(double Cent){
-		Cent=Cent*(93/33);
-		return Cent;
-	}
-	public double CentToTickLB(double Cent){
-		Cent=Cent*(97/33);
-		return Cent;
-	}
-	public double CentToTickRF(double Cent){
-		Cent=Cent*(90/33);
-		return Cent;
-	}
-	public double CentToTickRB(double Cent){
-		Cent=Cent*(90/33);
-		return Cent;
-	}
-	public int TickToCentLF(int Tick){
-		Tick=Tick*(33/93);
-		return Tick;
-	}
-	public int TickToCentLB(int Tick){
-		Tick=Tick*(33/97);
-		return Tick;
-	}
-	public int TickToCentRF(int Tick){
-		Tick=Tick*(33/90);
-		return Tick;
-	}
-	public int TickToCentRB(int Tick){
-		Tick=Tick*(33/90);
-		return Tick;
-	}
-	public double TickToCentLF(double Tick){
-		Tick=Tick*(33/93);
-		return Tick;
-	}
-	public double TickToCentLB(double Tick){
-		Tick=Tick*(33/97);
-		return Tick;
-	}
-	public double TickToCentRF(double Tick){
-		Tick=Tick*(33/90);
-		return Tick;
-	}
-	public double TickToCentRB(double Tick){
-		Tick=Tick*(33/90);
-		return Tick;
-	}
+	//to go 90 ticks [-90,-90]==33 cm @ 100 speed
+		//contains all conversions for:
+				//centimeter to tick and vice versa
+				//forward and backward
+				//left and right wheels
+				//int or double values
+				public int CentToTickLF(int Cent){
+					Cent=Cent*(90/33);
+					return Cent;
+				}
+				public int CentToTickLB(int Cent){
+					Cent=(int) (Cent*(97/38.5));
+					return Cent;
+				}
+				public int CentToTickRF(int Cent){
+					Cent=Cent*(90/33);
+					return Cent;
+				}
+				public int CentToTickRB(int Cent){
+					Cent=(int) (Cent*(90/38.5));
+					return Cent;
+				}
+				public double CentToTickLF(double Cent){
+					Cent=Cent*(90/33);
+					return Cent;
+				}
+				public double CentToTickLB(double Cent){
+					Cent=Cent*(97/38.5);
+					return Cent;
+				}
+				public double CentToTickRF(double Cent){
+					Cent=Cent*(90/33);
+					return Cent;
+				}
+				public double CentToTickRB(double Cent){
+					Cent=Cent*(90/38.5);
+					return Cent;
+				}
+				public int TickToCentLF(int Tick){
+					Tick=Tick*(33/90);
+					return Tick;
+				}
+				public int TickToCentLB(int Tick){
+					Tick=(int) (Tick*(38.5/90));
+					return Tick;
+				}
+				public int TickToCentRF(int Tick){
+					Tick=Tick*(33/90);
+					return Tick;
+				}
+				public int TickToCentRB(int Tick){
+					Tick=(int) (Tick*(38.5/90));
+					return Tick;
+				}
+				public double TickToCentLF(double Tick){
+					Tick=Tick*(33/90);
+					return Tick;
+				}
+				public double TickToCentLB(double Tick){
+					Tick=Tick*(38.5/90);
+					return Tick;
+				}
+				public double TickToCentRF(double Tick){
+					Tick=Tick*(33/90);
+					return Tick;
+				}
+				public double TickToCentRB(double Tick){
+					Tick=Tick*(38.5/90);
+					return Tick;
+				}
 	
 }

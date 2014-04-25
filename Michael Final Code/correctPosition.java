@@ -12,11 +12,12 @@ public class correctPosition {
 	
 	public void correctPosition(RXTXRobot r, int[] Changes,LolaObjectMichael Lola){
 		int[] RChanges={Changes[1],Changes[0]};//Changes array reversed for when the orientation of Lola is 90 degrees to start, so x and y are switched
-		if(Changes[0]<5&&Changes[0]>-5){
+		if(Changes[0]<3&&Changes[0]>-3){
+			
 			Changes[0]=0;
 			Lola.setEPLIST(0,0);
 		}
-		if(Changes[1]<5&&Changes[1]>-5){
+		if(Changes[1]<3&&Changes[1]>-3){
 			Changes[1]=0;
 			Lola.setEPLIST(1,0);
 		}
@@ -129,7 +130,7 @@ public class correctPosition {
 		
 		if (Changes[0]<0&&( (Lola.getMovementState()==("+XForward")) || (Lola.getMovementState()==("-XBackward")) )){
 			
-			RChanges[0]=(RChanges[0]*(-1));//Changed to + to interact with run motor
+			RChanges[1]=(RChanges[1]*(-1));//Changed to + to interact with run motor
 			
 			Left.ELeft(r);//turns left
 			For.EForward(r,Lola.CentToTickLF(RChanges[1]),Lola.CentToTickRF(RChanges[1]) );//moves forward to new position

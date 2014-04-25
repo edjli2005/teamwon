@@ -1,78 +1,54 @@
 import rxtxrobot.*;
 
 public class waterTests {
+ 
+	public waterTests(){}
+	public double[] waterTests(RXTXRobot r) {
+ 
 
-public waterTests(){}
-public double[] waterTests(RXTXRobot r) {
+ 
+ 
+		//this is the new conductivity the testedcon equation needs to be edited when I get back
+ 
+		/*r.refreshAnalogPins();
+		r.refreshDigitalPins();
+		int conductivity=0;
+		
+		for ( int x =0; x<=10; x++)
+		{
+			
+			conductivity = r.getConductivity();
+		}
+ 
+ 
+ 
+		double testedConductivity = (-0.30102*conductivity*conductivity) + (99.05*conductivity) - 6822.9;
+		System.out.println("arduino con: " + conductivity + "Conductivity: " + testedConductivity);//MICHAEL I think testedConductivity is the salinity, 
+																									//I will put it in an array and return it
+		
+		//Turbidity
+		r.sleep(5000);
+		int pinThree;
+		int total=0;
+		for (int x = 0; x<=10; x++)
+		{
+			r.refreshAnalogPins();
+			pinThree=r.getAnalogPin(3).getValue();
+			total= total+pinThree;
+		}
+ 
+		int avgPinVal = total/10;
+		System.out.println("Turbidity pins: " + avgPinVal);//MICHAEL I think avgPinVal is the turbidity value,
+															//I will put it in an array and return it
+ 
+		//int actualValue = a(avgPinVal) + b - values are what you find in the equation
+ 
+		//System.out.println("Turbidity of water is " + actualValue);
 
-//Variables
-double[] testValues= new double[2];
-double Tdiff=100;
-double TFIRST=100;
-double TSECOND=-1;
-double Turbidity=-1;
-double Salinity=-1;
-double a=0.03356972;
-double PIN3=r.getAnalogPin(3).getValue();
-double PIN4=r.getAnalogPin(4).getValue();
-double PIN5=r.getAnalogPin(5).getValue();
-double PIN11=r.getDigitalPin(11).getValue();
-double R=PIN4-PIN5;
-double distance=0.9;
-double area=6.32;
-double Sdiff=100;
-double SFIRST=100;
-double SSECOND=-1;
-double con=-1;
-while(((Sdiff>1||Sdiff<-1))){//While values are still rapidly changing
-//Turbidity //because the sensors haven't calibrated
-r.sleep(3000);	//to the water, keep testing the water
-r.refreshAnalogPins();
-r.refreshDigitalPins();
-PIN3=r.getAnalogPin(3).getValue();//gets pin values
-PIN4=r.getAnalogPin(4).getValue();
-PIN5=r.getAnalogPin(5).getValue();
-con=r.getConductivity();
-//PIN11=r.getDigitalPin(11).getValue();
-
-System.out.println("Turbidity!");
-System.out.println("Total Light: "+PIN3);//main turbidity measurement
-R=PIN4-PIN5;
-
-System.out.println("Salinity!");
-System.out.println("Current 1: "+PIN4);//main salinity measurements
-System.out.println("Current 2: "+PIN5);
-System.out.println("Current Diff: "+R);
-System.out.println("Conductivity: "+ con);
-//Turbidity=(Math.log(PIN3))/a;//turbidity math
-// System.out.println("Possible Turbidity: " + Turbidity);
-
-Salinity=(0.1254*R) - 10.074;//salinity math
-System.out.println(Salinity);
-// System.out.println("Possible Salinity: "+Salinity);
-
-TSECOND=TFIRST;
-TFIRST=PIN3;
-Tdiff=TFIRST-TSECOND;	//differences between measurements for turbidity
-
-SSECOND=SFIRST;
-SFIRST=R;
-Sdiff=SFIRST-SSECOND;	//differences between measurements for salinity
-
-
+		//didn't know what to return?
+		//MICHAEL's EDITS
+		double[] returnValues={testedConductivity,avgPinVal};//assembles {salinity,turbidity} to return*/
+		double[] returnValues={550,50};
+		return returnValues;
+	}
 }
-//System.out.println(PIN4);
-//System.out.println(PIN5);
-//System.out.println(PIN11);
-//System.out.println(R);
-//Salinity=distance/(R*area);
-// System.out.println("Final Turbidity: "+ Turbidity);//final outputs, will be put into array
-// System.out.println("Final Salinity: "+Salinity);
-testValues[0]=Turbidity;
-testValues[1]=Salinity;
-
-
-return testValues;
-}
-}
-

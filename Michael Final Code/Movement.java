@@ -54,6 +54,12 @@ public class Movement {
 		moveEForward.EForward(r, TicksL, TicksR);
 		
 	}
+	public void ETurnF(RXTXRobot r, int TicksL,int TicksR){
+		moveEForward.ETurnF(r, TicksL, TicksR);
+	}
+	public void ETurnB(RXTXRobot r, int TicksL,int TicksR){
+		moveEBackward.ETurnB(r, TicksL, TicksR);
+	}
 	public void EBackward(RXTXRobot r,int Ticks){
 		moveEBackward.EBackward(r, Ticks);
 		
@@ -103,82 +109,82 @@ public void bridgeRun(RXTXRobot r) {
 //	public void bridgeFind(RXTXRobot r,LolaObjectMichael Lola){
 //		Find.bridgeFind(r,Lola);
 //	}
-	public void setDistanceX(RXTXRobot r, LolaObjectMichael Lola){
-		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
-	}
-	public void setDistanceY(RXTXRobot r, LolaObjectMichael Lola){
-		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
-	}
-	//to go 90 ticks [-94/93/97/96,-91]==33 cm
+//	public void setDistanceX(RXTXRobot r, LolaObjectMichael Lola){
+//		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
+//	}
+//	public void setDistanceY(RXTXRobot r, LolaObjectMichael Lola){
+//		Lola.setDistanceXTraveled( ( Lola.getendEncoderValueLeft() ) - ( Lola.getstartEncoderValueLeft() ) );
+//	}
+//to go 90 ticks [-90,-90]==33 cm @ 100 speed
 	//contains all conversions for:
-		//centimeter to tick and vice versa
-		//forward and backward
-		//left and right wheels
-		//int or double values
-		public int CentToTickLF(int Cent){
-			Cent=Cent*(93/33);
-			return Cent;
-		}
-		public int CentToTickLB(int Cent){
-			Cent=Cent*(97/33);
-			return Cent;
-		}
-		public int CentToTickRF(int Cent){
-			Cent=Cent*(90/33);
-			return Cent;
-		}
-		public int CentToTickRB(int Cent){
-			Cent=Cent*(90/33);
-			return Cent;
-		}
-		public double CentToTickLF(double Cent){
-			Cent=Cent*(93/33);
-			return Cent;
-		}
-		public double CentToTickLB(double Cent){
-			Cent=Cent*(97/33);
-			return Cent;
-		}
-		public double CentToTickRF(double Cent){
-			Cent=Cent*(90/33);
-			return Cent;
-		}
-		public double CentToTickRB(double Cent){
-			Cent=Cent*(90/33);
-			return Cent;
-		}
-		public int TickToCentLF(int Tick){
-			Tick=Tick*(33/93);
-			return Tick;
-		}
-		public int TickToCentLB(int Tick){
-			Tick=Tick*(33/97);
-			return Tick;
-		}
-		public int TickToCentRF(int Tick){
-			Tick=Tick*(33/90);
-			return Tick;
-		}
-		public int TickToCentRB(int Tick){
-			Tick=Tick*(33/90);
-			return Tick;
-		}
-		public double TickToCentLF(double Tick){
-			Tick=Tick*(33/93);
-			return Tick;
-		}
-		public double TickToCentLB(double Tick){
-			Tick=Tick*(33/97);
-			return Tick;
-		}
-		public double TickToCentRF(double Tick){
-			Tick=Tick*(33/90);
-			return Tick;
-		}
-		public double TickToCentRB(double Tick){
-			Tick=Tick*(33/90);
-			return Tick;
-		}
+			//centimeter to tick and vice versa
+			//forward and backward
+			//left and right wheels
+			//int or double values
+			public int CentToTickLF(int Cent){
+				Cent=Cent*(90/33);
+				return Cent;
+			}
+			public int CentToTickLB(int Cent){
+				Cent=(int) (Cent*(97/38.5));
+				return Cent;
+			}
+			public int CentToTickRF(int Cent){
+				Cent=Cent*(90/33);
+				return Cent;
+			}
+			public int CentToTickRB(int Cent){
+				Cent=(int) (Cent*(90/38.5));
+				return Cent;
+			}
+			public double CentToTickLF(double Cent){
+				Cent=Cent*(90/33);
+				return Cent;
+			}
+			public double CentToTickLB(double Cent){
+				Cent=Cent*(97/38.5);
+				return Cent;
+			}
+			public double CentToTickRF(double Cent){
+				Cent=Cent*(90/33);
+				return Cent;
+			}
+			public double CentToTickRB(double Cent){
+				Cent=Cent*(90/38.5);
+				return Cent;
+			}
+			public int TickToCentLF(int Tick){
+				Tick=Tick*(33/90);
+				return Tick;
+			}
+			public int TickToCentLB(int Tick){
+				Tick=(int) (Tick*(38.5/90));
+				return Tick;
+			}
+			public int TickToCentRF(int Tick){
+				Tick=Tick*(33/90);
+				return Tick;
+			}
+			public int TickToCentRB(int Tick){
+				Tick=(int) (Tick*(38.5/90));
+				return Tick;
+			}
+			public double TickToCentLF(double Tick){
+				Tick=Tick*(33/90);
+				return Tick;
+			}
+			public double TickToCentLB(double Tick){
+				Tick=Tick*(38.5/90);
+				return Tick;
+			}
+			public double TickToCentRF(double Tick){
+				Tick=Tick*(33/90);
+				return Tick;
+			}
+			public double TickToCentRB(double Tick){
+				Tick=Tick*(38.5/90);
+				return Tick;
+			}
 		//passes to expected position function, only included for ease of use.
 		public int[] createExpectedPosition(RXTXRobot r, LolaObjectMichael Lola){
 			int[] expectedPosition = EP.createExpectedPosition(r, Lola);
@@ -195,7 +201,7 @@ public void bridgeRun(RXTXRobot r) {
 			while (MAXSPEED<245){
 				r.runMotor(r.MOTOR1, 0, r.MOTOR2, MAXSPEED,0 );
 				r.sleep(50);
-				MAXSPEED=MAXSPEED+10;
+				MAXSPEED=MAXSPEED+30;
 			}
 		}
 }

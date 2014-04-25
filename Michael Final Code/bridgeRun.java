@@ -15,22 +15,22 @@ public class bridgeRun {
 public void bridgeRun(RXTXRobot r) {
 		
 		r.refreshAnalogPins();
-		int R=122;
+		int R=105;
 		int L=100;
 		int[] Speed={L,R};
 		int[] PingValues;
-		for(int i=300;i>=0;i--){
+		for(int i=200;i>=0;i--){
 			
 			r.runMotor(RXTXRobot.MOTOR1, Speed[0], RXTXRobot.MOTOR2, Speed[1],0 );
 			PingValues=Ping.testDoublePing(r);
 			
 			if(PingValues[0]>115){
 				PingValues[0]=PingValues[0]-115;
-				Speed[1]=(int) (Speed[1]-(PingValues[0]*.5));
+				Speed[1]=(int) (Speed[1]-(PingValues[0]*1.5));
 			}
 			if(PingValues[0]<105){
 				PingValues[0]=105-PingValues[0];
-				Speed[1]=(int) (Speed[1]+(PingValues[0]*.5));
+				Speed[1]=(int) (Speed[1]+(PingValues[0]*1.5));
 			}
 			
 		}
