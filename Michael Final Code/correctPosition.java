@@ -12,12 +12,12 @@ public class correctPosition {
 	
 	public void correctPosition(RXTXRobot r, int[] Changes,LolaObjectMichael Lola){
 		int[] RChanges={Changes[1],Changes[0]};//Changes array reversed for when the orientation of Lola is 90 degrees to start, so x and y are switched
-		if(Changes[0]<3&&Changes[0]>-3){
+		if(Changes[0]<5&&Changes[0]>-5){
 			
 			Changes[0]=0;
 			Lola.setEPLIST(0,0);
 		}
-		if(Changes[1]<3&&Changes[1]>-3){
+		if(Changes[1]<5&&Changes[1]>-5){
 			Changes[1]=0;
 			Lola.setEPLIST(1,0);
 		}

@@ -10,8 +10,8 @@ public class Retrieve {
 			r.refreshAnalogPins();
 			}
 			*/
-			r.runMotor(RXTXRobot.MOTOR1, -200, RXTXRobot.MOTOR2, -200,500 );//extra in case it jams 
-			r.runMotor(RXTXRobot.MOTOR1, 133, RXTXRobot.MOTOR2, 125,500 );//reverses back
+			r.runMotor(RXTXRobot.MOTOR1, -175, RXTXRobot.MOTOR2, -175,500 );//extra in case it jams 
+			r.runMotor(RXTXRobot.MOTOR1, 125, RXTXRobot.MOTOR2, 115,500 );//reverses back
 	}
 		
 		System.out.println("Retrieve Done");

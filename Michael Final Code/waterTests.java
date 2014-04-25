@@ -10,7 +10,7 @@ public class waterTests {
  
 		//this is the new conductivity the testedcon equation needs to be edited when I get back
  
-		/*r.refreshAnalogPins();
+		r.refreshAnalogPins();
 		r.refreshDigitalPins();
 		int conductivity=0;
 		

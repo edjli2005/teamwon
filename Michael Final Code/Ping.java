@@ -20,9 +20,9 @@ public class Ping {
 		newsetPing.setPing(r, Lola);
 	}
 	public int[] testDoublePing(RXTXRobot r,LolaObjectMichael Lola){
-		int[] returnArray;
+		int[] returnArray={0,0};
 		
-		returnArray=newtestDoublePing.testDoublePing(r, Lola);
+		//returnArray=newtestDoublePing.testDoublePing(r, Lola);
 		
 		return returnArray;
 	}
